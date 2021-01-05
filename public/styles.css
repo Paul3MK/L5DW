@@ -1923,7 +1923,7 @@ video {
 
 .divide-secondary > :not([hidden]) ~ :not([hidden]){
   --tw-divide-opacity: 1;
-  border-color: rgba(3, 3, 70, var(--tw-divide-opacity));
+  border-color: rgba(8, 60, 165, var(--tw-divide-opacity));
 }
 
 .divide-solid > :not([hidden]) ~ :not([hidden]){
@@ -2535,7 +2535,7 @@ video {
 
 .bg-secondary{
   --tw-bg-opacity: 1;
-  background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+  background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
 }
 
 .group:hover .group-hover\:bg-transparent{
@@ -2963,7 +2963,7 @@ video {
 
 .group:hover .group-hover\:bg-secondary{
   --tw-bg-opacity: 1;
-  background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+  background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
 }
 
 .focus-within\:bg-transparent:focus-within{
@@ -3391,7 +3391,7 @@ video {
 
 .focus-within\:bg-secondary:focus-within{
   --tw-bg-opacity: 1;
-  background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+  background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
 }
 
 .hover\:bg-transparent:hover{
@@ -3819,7 +3819,7 @@ video {
 
 .hover\:bg-secondary:hover{
   --tw-bg-opacity: 1;
-  background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+  background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
 }
 
 .focus\:bg-transparent:focus{
@@ -4247,7 +4247,7 @@ video {
 
 .focus\:bg-secondary:focus{
   --tw-bg-opacity: 1;
-  background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+  background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
 }
 
 .bg-none{
@@ -8372,7 +8372,7 @@ video {
 
 .border-secondary{
   --tw-border-opacity: 1;
-  border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+  border-color: rgba(8, 60, 165, var(--tw-border-opacity));
 }
 
 .group:hover .group-hover\:border-transparent{
@@ -8800,7 +8800,7 @@ video {
 
 .group:hover .group-hover\:border-secondary{
   --tw-border-opacity: 1;
-  border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+  border-color: rgba(8, 60, 165, var(--tw-border-opacity));
 }
 
 .focus-within\:border-transparent:focus-within{
@@ -9228,7 +9228,7 @@ video {
 
 .focus-within\:border-secondary:focus-within{
   --tw-border-opacity: 1;
-  border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+  border-color: rgba(8, 60, 165, var(--tw-border-opacity));
 }
 
 .hover\:border-transparent:hover{
@@ -9656,7 +9656,7 @@ video {
 
 .hover\:border-secondary:hover{
   --tw-border-opacity: 1;
-  border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+  border-color: rgba(8, 60, 165, var(--tw-border-opacity));
 }
 
 .focus\:border-transparent:focus{
@@ -10084,7 +10084,7 @@ video {
 
 .focus\:border-secondary:focus{
   --tw-border-opacity: 1;
-  border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+  border-color: rgba(8, 60, 165, var(--tw-border-opacity));
 }
 
 .border-opacity-0{
@@ -11337,6 +11337,10 @@ video {
 
 .font-kayak{
   font-family: "Kayak Sans Regular";
+}
+
+.font-kayaklight{
+  font-family: "kayak_sanslight";
 }
 
 .font-archivo{
@@ -24738,7 +24742,7 @@ video {
 
 .text-secondary{
   --tw-text-opacity: 1;
-  color: rgba(3, 3, 70, var(--tw-text-opacity));
+  color: rgba(8, 60, 165, var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:text-transparent{
@@ -25166,7 +25170,7 @@ video {
 
 .group:hover .group-hover\:text-secondary{
   --tw-text-opacity: 1;
-  color: rgba(3, 3, 70, var(--tw-text-opacity));
+  color: rgba(8, 60, 165, var(--tw-text-opacity));
 }
 
 .focus-within\:text-transparent:focus-within{
@@ -25594,7 +25598,7 @@ video {
 
 .focus-within\:text-secondary:focus-within{
   --tw-text-opacity: 1;
-  color: rgba(3, 3, 70, var(--tw-text-opacity));
+  color: rgba(8, 60, 165, var(--tw-text-opacity));
 }
 
 .hover\:text-transparent:hover{
@@ -26022,7 +26026,7 @@ video {
 
 .hover\:text-secondary:hover{
   --tw-text-opacity: 1;
-  color: rgba(3, 3, 70, var(--tw-text-opacity));
+  color: rgba(8, 60, 165, var(--tw-text-opacity));
 }
 
 .focus\:text-transparent:focus{
@@ -26450,7 +26454,7 @@ video {
 
 .focus\:text-secondary:focus{
   --tw-text-opacity: 1;
-  color: rgba(3, 3, 70, var(--tw-text-opacity));
+  color: rgba(8, 60, 165, var(--tw-text-opacity));
 }
 
 .text-opacity-0{
@@ -31480,8 +31484,8 @@ video {
 }
 
 .blur{
-  -webkit-backdrop-filter: blur(1px) brightness(0.85);
-          backdrop-filter: blur(1px) brightness(0.85);
+  -webkit-backdrop-filter: blur(1px) brightness(0.75);
+          backdrop-filter: blur(1px) brightness(0.75);
 }
 
 .bodygradient{
@@ -32931,7 +32935,7 @@ video {
 
   .sm\:divide-secondary > :not([hidden]) ~ :not([hidden]){
     --tw-divide-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-divide-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-divide-opacity));
   }
 
   .sm\:divide-solid > :not([hidden]) ~ :not([hidden]){
@@ -33543,7 +33547,7 @@ video {
 
   .sm\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .group:hover .sm\:group-hover\:bg-transparent{
@@ -33971,7 +33975,7 @@ video {
 
   .group:hover .sm\:group-hover\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .sm\:focus-within\:bg-transparent:focus-within{
@@ -34399,7 +34403,7 @@ video {
 
   .sm\:focus-within\:bg-secondary:focus-within{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .sm\:hover\:bg-transparent:hover{
@@ -34827,7 +34831,7 @@ video {
 
   .sm\:hover\:bg-secondary:hover{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .sm\:focus\:bg-transparent:focus{
@@ -35255,7 +35259,7 @@ video {
 
   .sm\:focus\:bg-secondary:focus{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .sm\:bg-none{
@@ -39380,7 +39384,7 @@ video {
 
   .sm\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .group:hover .sm\:group-hover\:border-transparent{
@@ -39808,7 +39812,7 @@ video {
 
   .group:hover .sm\:group-hover\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .sm\:focus-within\:border-transparent:focus-within{
@@ -40236,7 +40240,7 @@ video {
 
   .sm\:focus-within\:border-secondary:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .sm\:hover\:border-transparent:hover{
@@ -40664,7 +40668,7 @@ video {
 
   .sm\:hover\:border-secondary:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .sm\:focus\:border-transparent:focus{
@@ -41092,7 +41096,7 @@ video {
 
   .sm\:focus\:border-secondary:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .sm\:border-opacity-0{
@@ -42345,6 +42349,10 @@ video {
 
   .sm\:font-kayak{
     font-family: "Kayak Sans Regular";
+  }
+
+  .sm\:font-kayaklight{
+    font-family: "kayak_sanslight";
   }
 
   .sm\:font-archivo{
@@ -55733,7 +55741,7 @@ video {
 
   .sm\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .group:hover .sm\:group-hover\:text-transparent{
@@ -56161,7 +56169,7 @@ video {
 
   .group:hover .sm\:group-hover\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .sm\:focus-within\:text-transparent:focus-within{
@@ -56589,7 +56597,7 @@ video {
 
   .sm\:focus-within\:text-secondary:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .sm\:hover\:text-transparent:hover{
@@ -57017,7 +57025,7 @@ video {
 
   .sm\:hover\:text-secondary:hover{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .sm\:focus\:text-transparent:focus{
@@ -57445,7 +57453,7 @@ video {
 
   .sm\:focus\:text-secondary:focus{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .sm\:text-opacity-0{
@@ -63682,7 +63690,7 @@ video {
 
   .md\:divide-secondary > :not([hidden]) ~ :not([hidden]){
     --tw-divide-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-divide-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-divide-opacity));
   }
 
   .md\:divide-solid > :not([hidden]) ~ :not([hidden]){
@@ -64294,7 +64302,7 @@ video {
 
   .md\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .group:hover .md\:group-hover\:bg-transparent{
@@ -64722,7 +64730,7 @@ video {
 
   .group:hover .md\:group-hover\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .md\:focus-within\:bg-transparent:focus-within{
@@ -65150,7 +65158,7 @@ video {
 
   .md\:focus-within\:bg-secondary:focus-within{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .md\:hover\:bg-transparent:hover{
@@ -65578,7 +65586,7 @@ video {
 
   .md\:hover\:bg-secondary:hover{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .md\:focus\:bg-transparent:focus{
@@ -66006,7 +66014,7 @@ video {
 
   .md\:focus\:bg-secondary:focus{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .md\:bg-none{
@@ -70131,7 +70139,7 @@ video {
 
   .md\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .group:hover .md\:group-hover\:border-transparent{
@@ -70559,7 +70567,7 @@ video {
 
   .group:hover .md\:group-hover\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .md\:focus-within\:border-transparent:focus-within{
@@ -70987,7 +70995,7 @@ video {
 
   .md\:focus-within\:border-secondary:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .md\:hover\:border-transparent:hover{
@@ -71415,7 +71423,7 @@ video {
 
   .md\:hover\:border-secondary:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .md\:focus\:border-transparent:focus{
@@ -71843,7 +71851,7 @@ video {
 
   .md\:focus\:border-secondary:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .md\:border-opacity-0{
@@ -73096,6 +73104,10 @@ video {
 
   .md\:font-kayak{
     font-family: "Kayak Sans Regular";
+  }
+
+  .md\:font-kayaklight{
+    font-family: "kayak_sanslight";
   }
 
   .md\:font-archivo{
@@ -86484,7 +86496,7 @@ video {
 
   .md\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .group:hover .md\:group-hover\:text-transparent{
@@ -86912,7 +86924,7 @@ video {
 
   .group:hover .md\:group-hover\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .md\:focus-within\:text-transparent:focus-within{
@@ -87340,7 +87352,7 @@ video {
 
   .md\:focus-within\:text-secondary:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .md\:hover\:text-transparent:hover{
@@ -87768,7 +87780,7 @@ video {
 
   .md\:hover\:text-secondary:hover{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .md\:focus\:text-transparent:focus{
@@ -88196,7 +88208,7 @@ video {
 
   .md\:focus\:text-secondary:focus{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .md\:text-opacity-0{
@@ -94433,7 +94445,7 @@ video {
 
   .lg\:divide-secondary > :not([hidden]) ~ :not([hidden]){
     --tw-divide-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-divide-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-divide-opacity));
   }
 
   .lg\:divide-solid > :not([hidden]) ~ :not([hidden]){
@@ -95045,7 +95057,7 @@ video {
 
   .lg\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .group:hover .lg\:group-hover\:bg-transparent{
@@ -95473,7 +95485,7 @@ video {
 
   .group:hover .lg\:group-hover\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .lg\:focus-within\:bg-transparent:focus-within{
@@ -95901,7 +95913,7 @@ video {
 
   .lg\:focus-within\:bg-secondary:focus-within{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .lg\:hover\:bg-transparent:hover{
@@ -96329,7 +96341,7 @@ video {
 
   .lg\:hover\:bg-secondary:hover{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .lg\:focus\:bg-transparent:focus{
@@ -96757,7 +96769,7 @@ video {
 
   .lg\:focus\:bg-secondary:focus{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .lg\:bg-none{
@@ -100882,7 +100894,7 @@ video {
 
   .lg\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .group:hover .lg\:group-hover\:border-transparent{
@@ -101310,7 +101322,7 @@ video {
 
   .group:hover .lg\:group-hover\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .lg\:focus-within\:border-transparent:focus-within{
@@ -101738,7 +101750,7 @@ video {
 
   .lg\:focus-within\:border-secondary:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .lg\:hover\:border-transparent:hover{
@@ -102166,7 +102178,7 @@ video {
 
   .lg\:hover\:border-secondary:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .lg\:focus\:border-transparent:focus{
@@ -102594,7 +102606,7 @@ video {
 
   .lg\:focus\:border-secondary:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .lg\:border-opacity-0{
@@ -103847,6 +103859,10 @@ video {
 
   .lg\:font-kayak{
     font-family: "Kayak Sans Regular";
+  }
+
+  .lg\:font-kayaklight{
+    font-family: "kayak_sanslight";
   }
 
   .lg\:font-archivo{
@@ -117235,7 +117251,7 @@ video {
 
   .lg\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .group:hover .lg\:group-hover\:text-transparent{
@@ -117663,7 +117679,7 @@ video {
 
   .group:hover .lg\:group-hover\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .lg\:focus-within\:text-transparent:focus-within{
@@ -118091,7 +118107,7 @@ video {
 
   .lg\:focus-within\:text-secondary:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .lg\:hover\:text-transparent:hover{
@@ -118519,7 +118535,7 @@ video {
 
   .lg\:hover\:text-secondary:hover{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .lg\:focus\:text-transparent:focus{
@@ -118947,7 +118963,7 @@ video {
 
   .lg\:focus\:text-secondary:focus{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .lg\:text-opacity-0{
@@ -125184,7 +125200,7 @@ video {
 
   .xl\:divide-secondary > :not([hidden]) ~ :not([hidden]){
     --tw-divide-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-divide-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-divide-opacity));
   }
 
   .xl\:divide-solid > :not([hidden]) ~ :not([hidden]){
@@ -125796,7 +125812,7 @@ video {
 
   .xl\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .group:hover .xl\:group-hover\:bg-transparent{
@@ -126224,7 +126240,7 @@ video {
 
   .group:hover .xl\:group-hover\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .xl\:focus-within\:bg-transparent:focus-within{
@@ -126652,7 +126668,7 @@ video {
 
   .xl\:focus-within\:bg-secondary:focus-within{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .xl\:hover\:bg-transparent:hover{
@@ -127080,7 +127096,7 @@ video {
 
   .xl\:hover\:bg-secondary:hover{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .xl\:focus\:bg-transparent:focus{
@@ -127508,7 +127524,7 @@ video {
 
   .xl\:focus\:bg-secondary:focus{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .xl\:bg-none{
@@ -131633,7 +131649,7 @@ video {
 
   .xl\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .group:hover .xl\:group-hover\:border-transparent{
@@ -132061,7 +132077,7 @@ video {
 
   .group:hover .xl\:group-hover\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .xl\:focus-within\:border-transparent:focus-within{
@@ -132489,7 +132505,7 @@ video {
 
   .xl\:focus-within\:border-secondary:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .xl\:hover\:border-transparent:hover{
@@ -132917,7 +132933,7 @@ video {
 
   .xl\:hover\:border-secondary:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .xl\:focus\:border-transparent:focus{
@@ -133345,7 +133361,7 @@ video {
 
   .xl\:focus\:border-secondary:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .xl\:border-opacity-0{
@@ -134598,6 +134614,10 @@ video {
 
   .xl\:font-kayak{
     font-family: "Kayak Sans Regular";
+  }
+
+  .xl\:font-kayaklight{
+    font-family: "kayak_sanslight";
   }
 
   .xl\:font-archivo{
@@ -147986,7 +148006,7 @@ video {
 
   .xl\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .group:hover .xl\:group-hover\:text-transparent{
@@ -148414,7 +148434,7 @@ video {
 
   .group:hover .xl\:group-hover\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .xl\:focus-within\:text-transparent:focus-within{
@@ -148842,7 +148862,7 @@ video {
 
   .xl\:focus-within\:text-secondary:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .xl\:hover\:text-transparent:hover{
@@ -149270,7 +149290,7 @@ video {
 
   .xl\:hover\:text-secondary:hover{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .xl\:focus\:text-transparent:focus{
@@ -149698,7 +149718,7 @@ video {
 
   .xl\:focus\:text-secondary:focus{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .xl\:text-opacity-0{
@@ -155935,7 +155955,7 @@ video {
 
   .\32xl\:divide-secondary > :not([hidden]) ~ :not([hidden]){
     --tw-divide-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-divide-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-divide-opacity));
   }
 
   .\32xl\:divide-solid > :not([hidden]) ~ :not([hidden]){
@@ -156547,7 +156567,7 @@ video {
 
   .\32xl\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:bg-transparent{
@@ -156975,7 +156995,7 @@ video {
 
   .group:hover .\32xl\:group-hover\:bg-secondary{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .\32xl\:focus-within\:bg-transparent:focus-within{
@@ -157403,7 +157423,7 @@ video {
 
   .\32xl\:focus-within\:bg-secondary:focus-within{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .\32xl\:hover\:bg-transparent:hover{
@@ -157831,7 +157851,7 @@ video {
 
   .\32xl\:hover\:bg-secondary:hover{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .\32xl\:focus\:bg-transparent:focus{
@@ -158259,7 +158279,7 @@ video {
 
   .\32xl\:focus\:bg-secondary:focus{
     --tw-bg-opacity: 1;
-    background-color: rgba(3, 3, 70, var(--tw-bg-opacity));
+    background-color: rgba(8, 60, 165, var(--tw-bg-opacity));
   }
 
   .\32xl\:bg-none{
@@ -162384,7 +162404,7 @@ video {
 
   .\32xl\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:border-transparent{
@@ -162812,7 +162832,7 @@ video {
 
   .group:hover .\32xl\:group-hover\:border-secondary{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .\32xl\:focus-within\:border-transparent:focus-within{
@@ -163240,7 +163260,7 @@ video {
 
   .\32xl\:focus-within\:border-secondary:focus-within{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .\32xl\:hover\:border-transparent:hover{
@@ -163668,7 +163688,7 @@ video {
 
   .\32xl\:hover\:border-secondary:hover{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .\32xl\:focus\:border-transparent:focus{
@@ -164096,7 +164116,7 @@ video {
 
   .\32xl\:focus\:border-secondary:focus{
     --tw-border-opacity: 1;
-    border-color: rgba(3, 3, 70, var(--tw-border-opacity));
+    border-color: rgba(8, 60, 165, var(--tw-border-opacity));
   }
 
   .\32xl\:border-opacity-0{
@@ -165349,6 +165369,10 @@ video {
 
   .\32xl\:font-kayak{
     font-family: "Kayak Sans Regular";
+  }
+
+  .\32xl\:font-kayaklight{
+    font-family: "kayak_sanslight";
   }
 
   .\32xl\:font-archivo{
@@ -178737,7 +178761,7 @@ video {
 
   .\32xl\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .group:hover .\32xl\:group-hover\:text-transparent{
@@ -179165,7 +179189,7 @@ video {
 
   .group:hover .\32xl\:group-hover\:text-secondary{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .\32xl\:focus-within\:text-transparent:focus-within{
@@ -179593,7 +179617,7 @@ video {
 
   .\32xl\:focus-within\:text-secondary:focus-within{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .\32xl\:hover\:text-transparent:hover{
@@ -180021,7 +180045,7 @@ video {
 
   .\32xl\:hover\:text-secondary:hover{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .\32xl\:focus\:text-transparent:focus{
@@ -180449,7 +180473,7 @@ video {
 
   .\32xl\:focus\:text-secondary:focus{
     --tw-text-opacity: 1;
-    color: rgba(3, 3, 70, var(--tw-text-opacity));
+    color: rgba(8, 60, 165, var(--tw-text-opacity));
   }
 
   .\32xl\:text-opacity-0{

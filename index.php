@@ -12,7 +12,7 @@
         <div class="glide__track h-" data-glide-el="track">
             <ul class="glide__slides">
                 <li class="glide__slide"><div class="h-screen"><img src="images/Hero carousel 1.png" alt=""></div></li>
-                <li class="glide__slide"><div class="h-screen"><img src="images/Hero carousel 2.png" alt=""></div></li> <!-- TODO: add this style into the src css -->
+                <li class="glide__slide"><div class="h-screen"><img src="images/roborace1.jpg" alt=""></div></li> <!-- TODO: add this style into the src css -->
                 <!-- <li class="glide__slide"><img src="images/vlad-tchompalov-jwyO3NhPZKQ-unsplash.jpg" width=20% alt=""></li> -->
             </ul>
         </div>
@@ -61,22 +61,24 @@
         </nav>
         <div class="grid grid-cols-12 container max-w-5xl mx-auto pt-24">
             <div class="col-span-12">
-                <h1 class="font-kayak font-light text-7xl text-primary">The <br><span class="font-bold">future</span> is <br>present.</h1>
+                <h1 class="font-kayak font-light text-7xl text-primary">The <br><span class="font-bold tracking-wider">future</span> is <br>present.</h1>
             </div>
             <span class="font-kayak font- text-white text-4xl col-span-full pt-4">welcome to driverless.</span>
-            <button class="py-2 rounded-3xl text-primary bg-secondary col-span-2 focus:outline-none mt-12"><span class="text-archivo ">Sign up</span></button>
+            <button class="py-2 rounded-3xl text-primary bg-secondary col-span-2 focus:outline-none mt-12 border-transparent border-2 transition duration-300 hover:bg-opacity-0 hover:border-secondary"><span class="text-archivo ">Sign up</span></button>
         </div>
         <!-- carousel -->
     </header>
-    <div class="flex justify-between container max-w-5xl mx-auto py-8 blur">
-        <div class="bg-none">
-            <a href="https://aimotive.com" style="background-color: rgba(0,0,0,0.0);"><img src="images/aimotive.png" alt="aimotive logo"></a>
-        </div>
-        <div>
-            <a href="https://automotiveworld.com"><img src="images/automotive-world.png" alt="aw logo"></a>
-        </div>
-        <div>
-            <a href="https://autonomousvehicleinternational.com"><img src="images/autonomous-vehicle.png" alt="avi logo"></a>
+    <div class="blur max-w-full">
+        <div class="flex justify-between container max-w-5xl mx-auto py-8">
+            <div class="bg-none">
+                <a href="https://aimotive.com" style="background-color: rgba(0,0,0,0.0);"><img src="images/aimotive.png" alt="aimotive logo"></a>
+            </div>
+            <div>
+                <a href="https://automotiveworld.com"><img src="images/automotive-world.png" alt="aw logo"></a>
+            </div>
+            <div>
+                <a href="https://autonomousvehicleinternational.com"><img src="images/autonomous-vehicle.png" alt="avi logo"></a>
+            </div>
         </div>
     </div>
     <div class="grid grid-cols-2">
@@ -97,7 +99,12 @@
     </div>
     <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
     <script>
-        new Glide('.glide').mount()
+        const config = {
+            type: "carousel",
+            autoplay: 10000,
+            hoverpause: true
+        }
+        new Glide('.glide', config).mount()
     </script>
 </body>
 </html>

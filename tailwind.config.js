@@ -6,7 +6,8 @@ module.exports = {
         fontFamily: {
           'kayak':['"Kayak Sans Regular"'],
           'kayaklight':['"kayak_sanslight"'],
-          'archivo':['Archivo']
+          'archivo':['Archivo'],
+          'inconsolata':['Inconsolata']
         },
         width: {
           'custom1':'1024px'

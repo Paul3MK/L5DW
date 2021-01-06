@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
@@ -11345,6 +11347,10 @@ video {
 
 .font-archivo{
   font-family: Archivo;
+}
+
+.font-inconsolata{
+  font-family: Inconsolata;
 }
 
 .font-thin{
@@ -42359,6 +42365,10 @@ video {
     font-family: Archivo;
   }
 
+  .sm\:font-inconsolata{
+    font-family: Inconsolata;
+  }
+
   .sm\:font-thin{
     font-weight: 100;
   }
@@ -73112,6 +73122,10 @@ video {
 
   .md\:font-archivo{
     font-family: Archivo;
+  }
+
+  .md\:font-inconsolata{
+    font-family: Inconsolata;
   }
 
   .md\:font-thin{
@@ -103869,6 +103883,10 @@ video {
     font-family: Archivo;
   }
 
+  .lg\:font-inconsolata{
+    font-family: Inconsolata;
+  }
+
   .lg\:font-thin{
     font-weight: 100;
   }
@@ -134624,6 +134642,10 @@ video {
     font-family: Archivo;
   }
 
+  .xl\:font-inconsolata{
+    font-family: Inconsolata;
+  }
+
   .xl\:font-thin{
     font-weight: 100;
   }
@@ -165377,6 +165399,10 @@ video {
 
   .\32xl\:font-archivo{
     font-family: Archivo;
+  }
+
+  .\32xl\:font-inconsolata{
+    font-family: Inconsolata;
   }
 
   .\32xl\:font-thin{

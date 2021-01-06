@@ -14,6 +14,13 @@
     $username = $password = "";
     $username_err = $password_err = $error = "";
 
+    //check if attempt num > 3
+    if($_SESSION['attemptnum'] == 3){
+        $_SESSION['locktime'] 
+    }
+    $_SESSION['attemptnum'] = $_SESSION['attemptnum'] + 1;
+
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username = trim($_POST['uname']);
         $password = trim($_POST['pw']);
@@ -45,6 +52,7 @@
         }else{
             echo "Something went wrong. Try again later.";
         }
+
         if(!empty($username_err)){
             $error = "No account found with this username.";
         }elseif(!empty($password_err)){

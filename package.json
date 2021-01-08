@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
+    "animejs": "^3.2.1",
     "autoprefixer": "^10.0.4",
     "postcss": "^8.1.13",
     "tailwindcss": "^2.0.1"

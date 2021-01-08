@@ -31,12 +31,17 @@
         @apply col-span-1 rounded-md py-2 text-red-600 font-semibold uppercase text-sm;
     }
 
+
     .h-100vh{
         height: 100vh;
     }
 
     .blur{
         backdrop-filter: blur(1px) brightness(0.75);
+    }
+
+    .no-blur{
+        backdrop-filter: none;
     }
 
     .bodygradient{

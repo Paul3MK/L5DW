@@ -1,3 +1,31 @@
+<?php
+
+    include "configure.php";
+
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    }
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $uname = $_POST['username'];
+
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+        $send_message = $connection->prepare("INSERT INTO messages(username, email, messagesent VALUES (?,?,?)");
+        $send_message->bind_param("sss", $uname, $email, $message);
+        if($send_message->execute()){
+            $positive_status = "Message sent.";
+        }
+        else{
+            $negative_status = "Something went wrong. Please try again later.";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +34,11 @@
     <link rel="stylesheet" href="public/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <title>Contact Us</title>
+    <title>Driverless - FAQs</title>
 </head>
 <body class="bodygradient">
     <div class="overflow-hidden z-1">
-        <img src="images/contact-img.gif" alt="" class="h-screen w-full">
+    <div class="relative h-screen" style="background-image: url('images/contact-img.gif'); background-position:left 40% top 40%; background-size:cover"></div>
     </div>
     <div class="h-screen w-full z-3 absolute top-0" style="clip-path: polygon(0 0, 83% 0, 24% 100%, 0% 100%); backdrop-filter: blur(1px) brightness(0.85);"></div>
     <!--navbar-->
@@ -53,7 +81,7 @@
         </nav>
         <div class="grid grid-cols-12 container max-w-5xl mx-auto pt-32">
             <div class="col-span-12">
-                <h1 class="font-kayak font-light text-7xl text-primary">Contact<br><span class="font-bold">us.</span></h1>
+                <h1 class="font-kayak font-light text-7xl text-primary">Any<br><span class="font-bold">questions?</span></h1>
             </div>
         </div>
         <!-- carousel -->
@@ -63,7 +91,7 @@
         <h1 class="font-kayak text-6xl text-primary font-light">FAQs</h1>
         <span class="pt-16 font-archivo text-secondary text-xl">Please check out frequently asked questions, for any common queries.
             There's not much point typing out a question if the answer's already
-            available!<br><?php echo print_r($_POST); ?></span>
+            available!</span>
         <div id="acc-container" class="block border border-transparent rounded-t-xl">
             <button class="accordion py-4 px-4 text-xl m-0 rounded-xl text-primary font-archivo focus:outline-none blur w-full text-left" onclick="addBorder()">What's the difference between subcribe and register?</button>
             <div class="panel hidden font-light font-archivo text-secondary text-lg">
@@ -71,31 +99,40 @@
             </div>
         </div>
         <div class="block">
-            <button class="accordion py-4 px-4 text-xl m-0 rounded-xl text-primary font-archivo focus:outline-none blur" onclick="addBorder()">What's the difference between subcribe and register?</button>
+            <button class="accordion py-4 px-4 text-xl m-0 rounded-xl text-primary font-archivo focus:outline-none blur w-full text-left" onclick="addBorder()">What's the difference between subcribe and register?</button>
             <div class="panel hidden font-light font-archivo text-secondary text-lg">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, eligendi minus impedit ut repellendus molestiae, nesciunt expedita harum quo et facilis voluptatum vel possimus velit cum exercitationem vero asperiores officia!
             </div>
         </div>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
+            <input type="hidden" value="<?php echo $_POST['name'] ?>">
+            <input type="hidden" value="<?php echo $_POST['email'] ?>">
+            <input type="hidden" value="<?php echo $_POST['message'] ?>">
+            <div>
+                <span <?php echo isset($_POST['message']) ? ">Your message: ".$_POST['message'] : "class='hidden'"?></span>
+            </div>
+            <input type="submit">
+        </form>
     </div>
     <script>
         var acc = document.getElementsByClassName("accordion");
         var accContainer = document.getElementById("acc-container");
         var i;
 
-        // function addBorder() {
-        //     accContainer.classList.toggle("border-primary");
-        // }
+        function addBorder() {
+            accContainer.classList.toggle("border-primary");
+        }
 
-        // for (i = 0; i < acc.length; i++) {
-        // acc[i].addEventListener("click", function() {
-        //     var panel = this.nextElementSibling;
-        //     // panel.classList.toggle("hidden");
-        //     if (panel.classList.contains("hidden")) {
-        //         panel.classList.toggle("hidden", false);
-        //     } else {
-        //         panel.classList.toggle("hidden", true);
-        //     }
-        // });
+        for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            var panel = this.nextElementSibling;
+            // panel.classList.toggle("hidden");
+            if (panel.classList.contains("hidden")) {
+                panel.classList.toggle("hidden", false);
+            } else {
+                panel.classList.toggle("hidden", true);
+            }
+        });
     }
     </script>
 </body>

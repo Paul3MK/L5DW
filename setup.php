@@ -76,6 +76,39 @@ $sql =
         die("<p>Could not create table attempts:</p>".$conn->error);
     }
 
+$sql =
+"CREATE TABLE IF NOT EXISTS messages(
+    username varchar(255) NOT NULL,
+    email varchar(255) NOT NULL,
+    timesent DATETIME DEFAULT CURRENT_TIMESTAMP,
+    messagesent TEXT NOT NULL,
+    PRIMARY KEY(username),
+    FOREIGN KEY (username) REFERENCES accounts(username))
+    ENGINE=InnoDB DEFAULT CHARSET=latin1";
+    //check if table is created
+    if($conn->query($sql)===TRUE){
+        echo "<p>Messages table successfully created";
+    }else{
+        die("<p>Could not create table messages:</p>".$conn->error);
+    }
+
+$sql =
+"CREATE TABLE IF NOT EXISTS stocks(
+    symbol varchar(5) NOT NULL,
+    price DOUBLE NOT NULL,
+    tradingday DATE NOT NULL,
+    `change` DECIMAL(10,4) NOT NULL,
+    `percent` varchar(16) NOT NULL,
+    cur_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY(symbol))
+    ENGINE=InnoDB DEFAULT CHARSET=latin1";
+    //check if table is created
+    if($conn->query($sql)===TRUE){
+        echo "<p>Stocks table successfully created";
+    }else{
+        die("<p>Could not create table stocks:</p>".$conn->error);
+    }
+
 
 // echo "<p><a href='login.php'>Proceed to login</a></p>";
 // echo "<p><a href='register.php'>Proceed to create account</a></p>";

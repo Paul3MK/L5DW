@@ -103,26 +103,5 @@
             </div>
         </div>
     </div>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var accContainer = document.getElementById("acc-container");
-        var i;
-
-        function addBorder() {
-            accContainer.classList.toggle("border-primary");
-        }
-
-        for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            var panel = this.nextElementSibling;
-            // panel.classList.toggle("hidden");
-            if (panel.classList.contains("hidden")) {
-                panel.classList.toggle("hidden", false);
-            } else {
-                panel.classList.toggle("hidden", true);
-            }
-        });
-    }
-    </script>
 </body>
 </html>

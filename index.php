@@ -1,4 +1,7 @@
 <?php
+
+    // include stocks file and run the relevant function, to populate stocks table 
+    // with TSLA, GOOG, UBER, INTC, NVDA, BIDU, YNDX, QCOM
     session_start();
 ?>
 <!DOCTYPE html>
@@ -9,12 +12,46 @@
     <?php echo "<link rel='stylesheet' type='text/css' href='public/styles.css?v=<?php echo time(); ?>'>"; ?>
     <?php echo "<link rel='stylesheet' href='node_modules/@glidejs/glide/dist/css/glide.core.min.css?v=<?php echo time(); ?>'>"; ?>
     <title>Driverless</title>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"> </script>
+    <script type="text/javascript">
+
+    var dataString = {stock: "TSLA"};
+
+    document.addEventListener("DOMContentLoaded", () => {
+        $.ajax({    //create an ajax request to display.php
+            type: "POST",
+            url: "stocks.php",
+            data: dataString,
+            dataType: "html",   //expect html to be returned                
+            success: function(response){                    
+                var set = response.split(" ");
+
+                $(".stock-span").each(function(index, element){
+                    $(element).append(set[index]);
+                })
+
+            }
+
+        });
+    });
+
+</script>
 </head>
 <body class="bodygradient">
+    <div id="overlay" class="bg-gray-700 z-50 fixed top-0 w-full h-screen">
+        <svg id="Logo-small" class="animate-spin block m-auto relative top-1/2" xmlns="http://www.w3.org/2000/svg" width="30.5" height="30.5" viewBox="0 0 30.5 30.5">
+            <path id="Path_3" data-name="Path 3" d="M155.3,50.852h6.774l2.651,2.651v9.327l-2.651,2.651H155.3" transform="translate(-149.303 -43.352)" fill="none" stroke="#fff236" stroke-linejoin="round" stroke-width="2"/>
+            <path id="Path_4" data-name="Path 4" d="M171.851,53.852,173,55v5.323" transform="translate(-33.404 187.652) rotate(-90)" fill="none" stroke="#fff236" stroke-linejoin="round" stroke-width="2"/>
+            <g id="Rectangle_6" data-name="Rectangle 6" fill="none" stroke="#fff236" stroke-width="2">
+                <rect width="30.5" height="30.5" stroke="none"/>
+                <rect x="1" y="1" width="28.5" height="28.5" fill="none"/>
+            </g>
+        </svg>
+    </div>
     <nav id="navSection" class="z-10 hidden lg:z-10 lg:grid no-blur w-full lg:grid-cols-3 p-6 lg:py-2 lg:px-6 pl-8 top-0 fixed">
         <div class="block lg:hidden">
             <button class="">
-            <img id="closeNav" src="images/Close.svg" alt="" onclick="toggleMenu()">
+            <img id="closeNav" src="images/Close.svg" alt="">
             </button>
         </div>  
         <div class="inline-block text-white col-span-1">
@@ -22,28 +59,23 @@
             <!-- <span class="font-semibold text-xl tracking-tight ml-4">Driverless</span> -->
             <img src="images/logo.svg" alt="" class="hidden lg:inline-block" h=16 w=16> 
         </div>
-        <div class="z-20 lg:z-10 lg:col-span-1 lg:inline-flex lg:items-center h-screen lg:h-auto lg:relative w-full lg:max-w-xs justify-self-center">
-            <span class="lg:flex-grow lg:flex-shrink-0">
+        <div class="z-20 lg:z-10 lg:col-span-1 lg:inline-flex lg:items-center lg:justify-between h-screen lg:h-auto lg:relative w-full lg:max-w-max justify-self-center">
+            <span class="nav-item lg:mx-4 lg:flex-shrink-0">
                 <a href="#" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Home
                 </a>
             </span>
-            <span class="lg:flex-grow lg:flex-shrink-0">
-                <a href="#" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
-                    About Us <!-- there ain't no about page -->
-                </a>
-            </span>
-            <span class="flex-grow flex-shrink-0">
+            <span class="nav-item lg:mx-4 flex-shrink-0">
                 <a href="contact.html" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Contact
                 </a>
             </span>
-            <span>
-                <a href="#" class="block text-lg mt-4 lg:hidden lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+            <span class="lg:hidden">
+                <a href="#" class="block text-lg mt-4 lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Login
                 </a>
             </span>
-            <span>
+            <span <?php echo isset($_SESSION['loggedin']) ? "class='lg:hidden'" : "class='nav-item lg:mx-4 flex-shrink-0'"?>>
                 <a href="#" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Sign up
                 </a>
@@ -52,11 +84,11 @@
                 Contact Us
             </a> -->
         </div>
-        <div class="hidden lg:inline-block lg:col-span-1 lg:justify-self-end lg:self-center">
-            <a class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-indigo-500 hover:bg-white mt-4 lg:mt-0" <?php echo (isset($_SESSION['loggedin'])) ? 'onclick="toggleAccount()" href="javascript:void(0)">Welcome, '. $_SESSION['username'] : 'href="login.php">Login'?></a>
+        <div class="nav-item hidden lg:inline-block lg:col-span-1 lg:justify-self-end lg:self-center">
+            <a id="accountButton" class="font-archivo text-lg rounded-sm bg-opacity-0 text-primary col-span-2 focus:outline-none border-2 px-8 mx-auto block transition duration-300 hover:bg-opacity-1 hover:bg-primary border-primary hover:text-secondary justify-center" <?php echo (isset($_SESSION['loggedin'])) ? 'href="javascript:void(0)">Welcome, '. $_SESSION['username'] : 'href="login.php">Login'?></a>
         </div>
     </nav>
-    <div id="account" class="hidden fixed right-6 top-20 transition duration-300 z-40 py-4 px-2 max-w-xs blur rounded-md rounded-tr-none">
+    <div <?php echo (isset($_SESSION['loggedin'])) ? 'id="account"': 'id=""'?> class="hidden fixed right-6 top-20 transition duration-300 z-40 py-4 px-2 max-w-xs blur rounded-md rounded-tr-none">
         <span class="font-archivo text-primary font-sm block py-1 px-2 text-center hover:text-white transition duration-300"><a href="accountdashboard.php">Manage your account</a></span>
         <span class="font-archivo text-primary font-sm block py-1 text-center hover:text-white transition duration-300"><a href="logout.php">Logout</a></span>
     </div>
@@ -76,29 +108,29 @@
     </div>
     <div class="h-screen w-full z-2 absolute top-0 hidden lg:block" style="clip-path: polygon(0 0, 83% 0, 24% 100%, 0% 100%); backdrop-filter: blur(1px) brightness(0.85);"></div>
     <div id="pageWrapper" class="z-3 absolute top-0 grid grid-cols-4 mx-8">
-        <span class=" col-start-2 row-start-1 col-span-2 inline-block lg:hidden mt-4">
+        <span id="logo" class=" col-start-2 row-start-1 col-span-2 inline-block lg:hidden mt-4">
             <img src="images/Logo-small.svg" alt="" class="mx-auto" h=16 w=16>
         </span>
-        <img id="openMenu" src="images/menu.svg" alt="" class="col-start-1 row-start-1 mt-6 lg:hidden" onclick="toggleMenu()">
+        <img id="openMenu" src="images/menu.svg" alt="" class="col-start-1 row-start-1 mt-6 lg:hidden">
         <header class="w-full col-span-4 h-screen">
             <div class="lg:grid lg:grid-cols-12 container max-w-xl lg:max-w-5xl mx-auto lg:pt-24">
-                <div class=" lg:col-span-12 pt-52 lg:pt-32">
+                <div id="heading" class="lg:col-span-12 pt-52 lg:pt-32">
                     <h1 class="font-kayak font-light text-5xl lg:text-7xl text-primary text-center lg:text-left">The <span class="font-bold tracking-wider">future<br></span> is present.</h1>
                 </div>
-                <span class="font-kayak text-white text-2xl lg:text-4xl col-span-full pt-20 lg:pt-4 block text-center lg:text-left">welcome to driverless.</span>
-                <button class="py-2 rounded-3xl text-primary bg-secondary col-span-2 focus:outline-none focus:bg-opacity-0 mt-12 lg:mt-8 border-transparent border-2 lg:px-12 px-20 mx-auto block transition duration-300 hover:bg-opacity-0 hover:border-secondary justify-center"><span class="font-archivo ">Sign up</span></button>
+                <span id="subheading" class="font-kayak text-white text-2xl lg:text-4xl col-span-full pt-20 lg:pt-4 block text-center lg:text-left">welcome to driverless.</span>
+                <button id="cta" class="py-2 rounded-3xl text-primary bg-secondary col-span-2 focus:outline-none focus:bg-opacity-0 mt-12 lg:mt-8 border-transparent border-2 lg:px-12 px-20 mx-auto block transition duration-300 hover:bg-opacity-0 hover:border-secondary justify-center"><span class="font-archivo "><?php echo (isset($_SESSION['loggedin'])) ? 'Subscribe' : 'Sign up' ?></span></button>
             </div>
             <img src="images/Scroll down.svg" alt="" class="mx-auto mt-6 animate-bounce">
         </header>
         <div class="lg:blur lg:max-w-full lg:block lg:col-span-full contents">
-            <div class="contents lg:flex justify-between container max-w-5xl mx-auto py-8 mt-4">
-                <div class="col-span-2 col-start-2 my-8">
+            <div id="link-holder" class="lg:flex justify-between container max-w-5xl mx-auto py-8 mt-4 contents">
+                <div class="img-link col-span-2 col-start-2 my-8">
                     <a href="https://aimotive.com" style="background-color: rgba(0,0,0,0.0);"><img src="images/aimotive.png" alt="aimotive logo" class="mx-auto "></a>
                 </div>
-                <div class="col-start-2 col-span-2 my-8">
+                <div class="img-link col-start-2 col-span-2 my-8">
                     <a href="https://automotiveworld.com"><img src="images/automotive-world.png" alt="aw logo" class="mx-auto"></a>
                 </div>
-                <div class="col-start-2 col-span-2 my-8">
+                <div class="img-link col-start-2 col-span-2 my-8">
                     <a href="https://autonomousvehicleinternational.com"><img src="images/autonomous-vehicle.png" alt="avi logo" class="mx-auto"></a>
                 </div>
             </div>
@@ -106,49 +138,78 @@
         <div id="glide2" class="col-span-4">
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
-                    <li class="glide__slide">
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 p-6 rounded-md">
+                        <div class="grid lg:grid-cols-2 grid-cols-4">
+                            <span class=' text-primary font-archivo text-3xl col-span-4'>Tesla Inc.</span>
+                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
+                            <div class='col-span-2 mt-8'>
+                                <span class='stock-span text-primary font-archivo text-xl'></span>
+                                <span class='text-primary font-archivo text-md'> USD</span>
+                            </div>
+                            <div class='col-span-2 self-end'>
+                                <span class='stock-span text-primary font-archivo text-md'></span>
+                                <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
+                            </div>
+                            <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
+                        </div>
+                    </li>
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 p-6 rounded-md">
                         <div class="grid lg:grid-cols-2 grid-cols-4">
                             <?php
-                                $var1 = file_get_contents("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=TSLA&apikey=IGWHKLEEZ6N6GGG1");
-                                $data = json_decode($var1);
-                                
-                                foreach ($data as $line){
-                                    $symbol = $line->{'01. symbol'};
-                                    $price = $line ->{'05. price'};
-                                    $day = $line ->{'07. latest trading day'};
-                                    $change = $line ->{'09. change'};
-                                    $percent = $line ->{'10. change percent'};
+                                $data2 = null;
+
+                                while(!$data2){
+                                    $var2 = file_get_contents("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=GOOG&apikey=IGWHKLEEZ6N6GGG1");
+                                    $data2 = json_decode($var2);
+                                    sleep(1);
+                                }
+
+                                // echo $data2;
+
+                                foreach ($data2 as $line){
+                                    $symbol2 = $line->{'01. symbol'};
+                                    $price2 = $line ->{'05. price'};
+                                    $day2 = $line ->{'07. latest trading day'};
+                                    $change2 = $line ->{'09. change'};
+                                    $percent2 = $line ->{'10. change percent'};
                                     
-                                    echo "<span class='text-primary font-archivo text-3xl col-span-4'>Tesla Inc.</span>";
-                                    echo "<span class='text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: ".$symbol."</span>";
-                                    echo "<div class='col-span-2 mt-8'><span class='text-primary font-archivo text-xl'>".$price."</span> <span class='text-primary font-archivo text-md'> USD</span></div>";
-                                    echo "<div class='col-span-2 self-end'><span class='text-primary font-archivo text-md'>+".$change."</span>";
-                                    echo "<span class='text-primary font-archivo text-md'> (".$percent.")</span></div>";
-                                    echo "<span class='text-primary font-archivo text-md col-span-4 mt-4'>".$day."</span>";
+                                    echo "<span class='text-primary font-archivo text-3xl col-span-4'>Alphabet Inc Class C</span>";
+                                    echo "<span class='text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: ".$symbol2."</span>";
+                                    echo "<div class='col-span-2 mt-8'><span class='text-primary font-archivo text-xl'>".$price2."</span> <span class='text-primary font-archivo text-md'> USD</span></div>";
+                                    echo "<div class='col-span-2 self-end justify-end'><span class='text-primary font-archivo text-md'>".$change2."</span>";
+                                    echo "<span class='text-primary font-archivo text-md'> (".$percent2.")</span></div>";
+                                    echo "<span class='text-primary font-archivo text-md col-span-4 mt-4'>".$day2."</span>";
                                 };
+                                
                             ?>
                         </div>
                     </li>
-                    <li class="glide__slide">
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 p-6 rounded-md">
                         <div class="grid lg:grid-cols-2 grid-cols-4">
                             <?php
+                                $data3 = null;
 
-                                $var1 = file_get_contents("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=GOOG&apikey=IGWHKLEEZ6N6GGG1");
-                                $data = json_decode($var1);
+                                while(!$data3){
+                                    $var3 = file_get_contents("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=UBER&apikey=IGWHKLEEZ6N6GGG1");
+                                    $data3 = json_decode($var3);
+                                    sleep(1);
+                                }
                                 
-                                foreach ($data as $line){
-                                    $symbol = $line->{'01. symbol'};
-                                    $price = $line ->{'05. price'};
-                                    $day = $line ->{'07. latest trading day'};
-                                    $change = $line ->{'09. change'};
-                                    $percent = $line ->{'10. change percent'};
+                                // echo $data3;
+
+                                foreach ($data3 as $line){
+                                    $symbol3 = $line->{'01. symbol'};
+                                    $price3 = $line ->{'05. price'};
+                                    $day3 = $line ->{'07. latest trading day'};
+                                    $change3 = $line ->{'09. change'};
+                                    $percent3 = $line ->{'10. change percent'};
                                     
-                                    echo "<span class='text-primary font-archivo text-3xl col-span-4'>Alphabet Inc Class C</span>";
-                                    echo "<span class='text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: ".$symbol."</span>";
-                                    echo "<div class='col-span-2 mt-8'><span class='text-primary font-archivo text-xl'>".$price."</span> <span class='text-primary font-archivo text-md'> USD</span></div>";
-                                    echo "<div class='col-span-2 self-end justify-end'><span class='text-primary font-archivo text-md'>".$change."</span>";
-                                    echo "<span class='text-primary font-archivo text-md'> (".$percent.")</span></div>";
-                                    echo "<span class='text-primary font-archivo text-md col-span-4 mt-4'>".$day."</span>";
+                                    echo "<span class='text-primary font-archivo text-3xl col-span-4'>Uber Technologies Inc.</span>";
+                                    echo "<span class='text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: ".$symbol3."</span>";
+                                    echo "<div class='col-span-2 mt-8'><span class='text-primary font-archivo text-xl'>".$price3."</span> <span class='text-primary font-archivo text-md'> USD</span></div>";
+                                    echo "<div class='col-span-2 self-end justify-end'><span class='text-primary font-archivo text-md'>".$change3."</span>";
+                                    echo "<span class='text-primary font-archivo text-md'> (".$percent3.")</span></div>";
+                                    echo "<span class='text-primary font-archivo text-md col-span-4 mt-4'>".$day3."</span>";
                                 };
                                 
                             ?>
@@ -163,7 +224,7 @@
             </div>
         </div>
         <div class="col-span-4">
-            <div id="accordionTab" onclick="toggleAccordion()">
+            <div id="accordionTab">
                 <span>Fresh news in the world of autonomous vehicles.</span>
             </div>
             <div id="accordionContent" class="hidden">
@@ -210,7 +271,11 @@
             <img src="images/Driverless.png" alt="">
         </div>
     </div>
-    <script>
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script src="node_modules/waypoints/lib/noframework.waypoints.min.js"></script>
+    <script type="module" src="script.js"></script>
+    <?php echo isset($_SESSION['loggedin']) ? '<script type="text/javascript" src="script.js"></script>' : ''?>
+    <!-- <script>
         function toggleMenu() {
             var x = document.getElementById("navSection");
             x.classList.toggle("hidden");
@@ -317,6 +382,6 @@
             document.getElementById("countdown").innerHTML = "EXPIRED";
         }
         }, 1000);
-</script>
+</script> -->
 </body>
 </html>

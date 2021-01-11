@@ -37,7 +37,7 @@
     }
 
     .blur{
-        backdrop-filter: blur(1px) brightness(0.75);
+        backdrop-filter: blur(2px) brightness(0.65);
     }
 
     .no-blur{

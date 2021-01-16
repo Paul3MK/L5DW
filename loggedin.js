@@ -3,4 +3,4 @@ function toggleAccount() {
     account.classList.toggle("lg:block");
 }
 
-document.querySelector("#accountButton").addEventListener("click", toggleAccount());
+document.querySelector("#accountButton").addEventListener("click", toggleAccount);

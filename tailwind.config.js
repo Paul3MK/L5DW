@@ -4,7 +4,7 @@ module.exports = {
     theme: {
       extend: {
         fontFamily: {
-          'kayak':['"Kayak Sans Regular"'],
+          'kayak':['"kayak_sansregular"'],
           'kayaklight':['"kayak_sanslight"'],
           'archivo':['Archivo'],
           'inconsolata':['Inconsolata']
@@ -29,6 +29,37 @@ module.exports = {
         },
         placeholderColor: {
           'primary':'#FFF236'
+        },
+        rotate:{
+          '135': '135deg',
+          '270': '270deg'
+        },
+        spacing:{
+          '10%': '10%',
+          '20%': '20%',
+          '25%': '25%',
+          '30%': '30%',
+          '33%': '33%',
+          '40%': '40%',
+          '50%': '50%',
+          '60%': '60%',
+          '70%': '70%',
+          '75%': '75%',
+          '80%': '80%',
+          '90%': '90%',
+          '99%': '99$',
+          '100%': '100%',
+        },
+        zIndex:{
+          '1': 1,
+          '2': 2,
+          '3': 3,
+          '4': 4,
+          '5': 5,
+          '6': 6,
+          '7': 7,
+          '8': 8,
+          '9': 9
         }
       },
     },

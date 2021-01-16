@@ -78,10 +78,17 @@
 
     // loadStocksTable();
 
-    $given_stock = $_POST['stock'];
+    $given_stock = json_decode($_POST['stocks']);
+    $return_array = array();
 
-    list($a, $b, $c, $d, $e) = retrieveStocks($given_stock);
+    foreach ($given_stock as $stock){
+        $temp = retrieveStocks($stock);
+        foreach($temp as $i){
+            array_push($return_array, $i);
+        }
+        
+    }
 
-    echo $a." ".$b." ".$c." ".$d." ".$e;
+    echo json_encode($return_array);
 
 ?>

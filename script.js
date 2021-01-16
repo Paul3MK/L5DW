@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
             anime({
                 targets: '.img-link',
                 easing: 'easeOutExpo',
-                translateX: [-100, 0],
-                opactiy: [0, 1],
-                delay:300,
+                translateY: [100, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(100)
             })
         },
         offset:'100%'
@@ -19,11 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
 function toggleMenu() {
     var x = document.getElementById("navSection");
     x.classList.toggle("hidden");
+    anime({
+        targets: '.nav-link',
+        easing: 'easeOutExpo',
+        duration: 250,
+        delay: anime.stagger(100, {start: 250}),
+        opacity: [0, 1]
+    })
     var y = document.getElementById("openMenu");
-    if (y.style.opacity === 100){
+    if(y.style.opacity === 1){
         y.style.opacity = 0
     }else{
-        y.style.opacity = 100
+        y.style.opacity = 1
     }
 }
 
@@ -32,9 +39,9 @@ function toggleAccordion() {
     acc.classList.toggle("hidden");
 }
 
-document.querySelector("#closeNav").addEventListener("click", toggleMenu());
-document.querySelector("#openMenu").addEventListener("click", toggleMenu());
-document.querySelector("#accordionTab").addEventListener("click", toggleAccordion());
+document.querySelector("#closeNav").addEventListener("click", toggleMenu);
+document.querySelector("#openMenu").addEventListener("click", toggleMenu);
+document.querySelector("#accordionTab").addEventListener("click", toggleAccordion);
 
 
 const config = {
@@ -49,6 +56,8 @@ const config2 = {
     type: "slider",
     swipeThreshold: 50,
     dragThreshold: 100,
+    autoplay: 7000,
+    hoverpause: true,
     breakpoints: {
         767: {
             perView: 1
@@ -70,7 +79,7 @@ return x.toLocaleString(undefined, {minimumIntegerDigits: 2, useGrouping:false})
 }
 
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 11, 2021 17:00:00").getTime();
+var countDownDate = new Date("Jan 28, 2021 17:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -109,13 +118,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tl
     .add({
+        targets: '#logo-overlay',
+        opacity: [1, 0],
+        easing: 'easeInOutQuad'
+    })
+    .add({
         targets: '#overlay',
         translateX: -10000,
         easing: 'easeInOutQuad'
     })
     .add({
         targets: '#logo',
-        translateX: [-100, 0],
         opacity: [0, 1],
         easing: 'easeInOutQuad'
     })
@@ -137,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
         document.getElementById("overlay").classList.add("hidden")
-    }, 2000)
+    }, 1000)
 });
 
 let scrolling = false;
@@ -150,11 +163,11 @@ window.addEventListener('scroll', () => {
         if (scrolling) {
             scrolling = false;
             if(Math.round(window.scrollY) > 20){
-                nav.classList.add("blur", "transition", "duration-300");
-                nav.classList.remove("no-blur");
+                nav.classList.add("lg:blur", "transition", "duration-300");
+                nav.classList.remove("lg:no-blur");
             }else{
-                nav.classList.add("no-blur");
-                nav.classList.remove("blur", "transition", "duration-300");
+                nav.classList.add("lg:no-blur");
+                nav.classList.remove("lg:blur", "transition", "duration-300");
             }
         }
     },300);

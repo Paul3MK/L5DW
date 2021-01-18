@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script>
 </head>
-<body class="bodygradient relative min-h-full over">
+<body class="bodygradient relative min-h-full">
     <div id="overlay" class="bg-gray-700 z-50 fixed top-0 w-full h-screen">
         <svg id="logo-overlay" class="animate-spin block m-auto relative top-1/2" xmlns="http://www.w3.org/2000/svg" width="30.5" height="30.5" viewBox="0 0 30.5 30.5">
             <path id="Path_3" data-name="Path 3" d="M155.3,50.852h6.774l2.651,2.651v9.327l-2.651,2.651H155.3" transform="translate(-149.303 -43.352)" fill="none" stroke="#fff236" stroke-linejoin="round" stroke-width="2"/>
@@ -55,10 +55,17 @@ document.addEventListener("DOMContentLoaded", () => {
             </g>
         </svg>
     </div>
-    <div class="z-10 top-0 fixed">
-        <marquee behavior="" direction=""></marquee>
+    <div id="banner" class="z-40 top-0 relative bg-secondary overflow-hidden w-full flex justify-between px-6">
+        <img src="images/Roborace_Perspective_Green_4000px_Logo.png" alt="" width="108" class="inline pulse">
+        <span class="py-1 font-archivo text-primary inline self-center border-b border-primary">Exclusive! Create your account today to receive a 10% discount code on partner purchases.</span>
+        <div class="self-center">
+            <div class="mx-4 lg:inline-block lg:col-span-1 lg:justify-self-end lg:self-center">
+                <a id="accountButton2" class="font-archivo text-lg rounded-2xl bg-opacity-0 text-primary col-span-2 focus:outline-none border-2 px-8 py-1 mx-auto block transition duration-300 hover:bg-opacity-1 hover:bg-primary border-primary hover:text-secondary justify-center">Sign up</a>
+            </div>
+            <img src="images/Close.svg" alt="" id="closeBanner" class="inline relative right-0 tranform hover:scale-105">
+        </div>
     </div>
-    <nav id="navSection" class="z-40 hidden lg:z-10 lg:grid blur lg:no-blur w-full lg:grid-cols-3 py-5 px-4 lg:py-2 lg:px-6 fixed">
+    <nav id="navSection" class="z-40 hidden lg:z-10 lg:grid blur lg:no-blur w-full lg:grid-cols-3 py-5 px-4 lg:py-2 lg:px-6 fixed top-0">
         <div class="block lg:hidden">
             <button class="">
             <img id="closeNav" src="images/Close.svg" alt="">
@@ -71,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="z-20 lg:z-10 lg:col-span-1 lg:inline-flex lg:items-center lg:justify-between h-screen lg:h-auto lg:relative w-full lg:max-w-max justify-self-center">
             <span class="nav-item lg:mx-4 lg:flex-shrink-0">
-                <a href="#" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                <a href="index.php" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Home
                 </a>
             </span>
@@ -86,12 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
             </span>
             <span class="lg:hidden">
-                <a href="#" class="nav-link block text-lg mt-4 lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                <a href="login.php" class="nav-link block text-lg mt-4 lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Login
                 </a>
             </span>
             <span <?php echo isset($_SESSION['loggedin']) ? "class='lg:hidden'" : "class='nav-item lg:mx-4 flex-shrink-0'"?>>
-                <a href="#" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                <a href="fullregister.php" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Sign up
                 </a>
             </span>
@@ -109,12 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
         </span>
         <img id="openMenu" src="images/menu.svg" alt="" class="col-start-1 row-start-1 my-6 lg:hidden">
     </div>
-    <div <?php echo (isset($_SESSION['loggedin'])) ? 'id="account"': 'id=""'?> class="hidden fixed right-6 top-20 transition duration-300 z-40 py-4 px-2 max-w-xs blur rounded-md rounded-tr-none">
+    <div <?php echo (isset($_SESSION['loggedin'])) ? 'id="account"': 'id=""'?> class="hidden fixed right-6 top-32 transition duration-300 z-40 py-4 px-2 max-w-xs blur rounded-md rounded-tr-none">
         <span class="font-archivo text-primary font-sm block py-1 px-2 text-center hover:text-white transition duration-300"><a href="accountdashboard.php">Manage your account</a></span>
         <span class="font-archivo text-primary font-sm block py-1 text-center hover:text-white transition duration-300"><a href="logout.php">Logout</a></span>
     </div>
-    <div class="glide z-1 absolute top-0">
-        <div class= "glide__track h-" data-glide-el="track">
+    <div class="glide z-1 absolute top-15">
+        <div class= "glide__track" data-glide-el="track">
             <ul class="glide__slides">
                 <li class="glide__slide"><div class="relative h-screen" style="background-image: url('images/Hero carousel 1.png'); background-position:left 30% top 40%; background-size:cover"></div></li>
                 <li class="glide__slide"><div class="relative h-screen" style="background-image: url('images/e2f1e5c2-roborace.jpg'); background-position:left 40% top 40%;"></div></li>
@@ -122,22 +129,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!-- <li class="glide__slide"><img src="images/vlad-tchompalov-jwyO3NhPZKQ-unsplash.jpg" width=20% alt=""></li> -->
             </ul>
         </div>
-        <!-- <div class="glide__arrows" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-        </div> -->
     </div>
     <div class="h-screen w-full z-2 absolute top-0 hidden lg:block" style="clip-path: polygon(0 0, 83% 0, 24% 100%, 0% 100%); backdrop-filter: blur(1px) brightness(0.85);"></div>
-    <div id="pageWrapper" class="z-3 absolute top-0 grid grid-cols-4 lg:mx-8 mx-4">
+    <div id="pageWrapper" class="z-3 relative top-0 grid grid-cols-4 lg:mx-8 mx-4">
         <header class="w-full col-span-4 h-screen">
             <div class="lg:grid lg:grid-cols-12 container max-w-xl lg:max-w-5xl mx-auto pt-10% lg:pt-24 h-75% lg:h-auto">
-                <div id="heading" class="lg:col-span-12 mt-40% lg:mt-32">
+                <div id="heading" class="lg:col-span-12 mt-30vh lg:mt-32">
                     <h1 class="font-kayak font-light text-5xl lg:text-7xl text-primary text-center lg:text-left">The <span class="font-bold tracking-wider">future<br></span> is present.</h1>
                 </div>
-                <span id="subheading" class="font-kayak text-white text-2xl lg:text-4xl col-span-full mt-10% lg:mt-4 block text-center lg:text-left">welcome to driverless.</span>
-                <button id="cta" class="py-2 rounded-3xl text-primary bg-secondary col-span-2 focus:outline-none focus:bg-opacity-0 mt-30% lg:mt-8 border-transparent border-2 lg:px-12 px-20 mx-auto block transition duration-300 hover:bg-opacity-0 hover:border-secondary justify-center"><span class="font-archivo "><?php echo (isset($_SESSION['loggedin'])) ? 'Subscribe' : 'Sign up' ?></span></button>
+                <span id="subheading" class="font-kayak text-white text-2xl lg:text-4xl col-span-full mt-5vh lg:mt-4 block text-center lg:text-left">welcome to driverless.</span>
+                <button id="cta" class="py-2 rounded-3xl text-primary bg-secondary col-span-2 focus:outline-none focus:bg-opacity-0 mt-10 lg:mt-8 border-transparent border-2 lg:px-12 px-20 mx-auto block transition duration-300 hover:bg-opacity-0 hover:border-secondary justify-center"><span class="font-archivo "><?php echo (isset($_SESSION['loggedin'])) ? 'Subscribe' : 'Sign up' ?></span></button>
             </div>
-            <img src="images/Scroll down.svg" alt="" class="mx-auto mt-10% lg:mt-6 animate-bounce">
+            <img src="images/Scroll down.svg" alt="" class="mx-auto mt-20vh lg:mt-6 animate-bounce">
         </header>
         <div class="lg:blur lg:max-w-full lg:block lg:col-span-full contents">
             <div id="link-holder" class="lg:flex justify-between container max-w-5xl mx-auto py-8 mt-4 contents">
@@ -159,147 +162,147 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p class="font-archivo text-primary text-lg px-4 my-2">We are Driverless. <br> We are a company dedicated to bringing you the very latest in the world of autonomous vehicles and related techonology.</p>
                 <p class="font-archivo text-primary text-lg px-4 my-2">In order to keep our readers posted with fresh news and exlusive content, we offer a member-only magazine; <a href="fullregister.php" class="underline">create an account</a> to gain access.</p>
                 <p class="font-archivo text-primary text-lg px-4 my-2">Subscribe to our newsletter.</p>
-                <div class="mx-auto mt-12 px-4">
-                    <input type="email" placeholder="Email address" class="inline font-archivo py-1 px-2 w-full rounded-md lg:rounded-none lg:max-w-min border-2 border-primary bg-secondary bg-opacity-0 focus:outline-none focus:ring">
-                    <button class="py-1 text-primary hover:text-secondary bg-primary col-span-2 w-full rounded-md lg:rounded-r-md lg:rounded-l-none lg:max-w-min bg-opacity-0 focus:outline-none focus:bg-opacity-100 border-primary border-2 px-2 lg:inline block transition duration-200 hover:bg-primary justify-center"><span class="font-archivo ">Subscribe</span></button>
+                <div class="mx-auto mt-8 lg:mt-12 mb-8 lg:mb-0 px-4 flex">
+                <input type="email" placeholder="Email address" class="inline font-archivo text-primary placeholder-primary placeholder-opacity-50 py-1 px-2 w-full rounded-none max-w-max max-h-full border-2 border-primary bg-secondary bg-opacity-0 focus:outline-none focus:ring">
+                    <button class="py-1 text-primary hover:text-secondary bg-primary col-span-2 w-full rounded-r-md rounded-l-none max-w-min bg-opacity-0 focus:outline-none focus:bg-opacity-100 border-primary border-2 px-2 lg:inline block transition duration-200 hover:bg-primary justify-center"><span class="font-archivo ">Subscribe</span></button>
                 </div>
             </div>
         </div>
         <div id="glide2" class="col-span-4 mt-8">
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
-                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-6 rounded-md">
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-4 rounded-md">
                         <div class="grid lg:grid-cols-2 grid-cols-4">
-                            <span class=' text-primary font-archivo text-sm uppercase col-span-3 justify-self-end'>Recommended</span>
-                            <span class="flex relative h-3 w-3 col-span-1">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                            <span class=' text-primary font-archivo text-2xl col-span-4'>Tesla Inc.</span>
+                            <span class='stock-span text-primary font-archivo text-xl col-span-3 mt-4'>NASDAQ: </span>
+                            <span class=' text-primary font-archivo text-xs uppercase col-span-1 self-end mb-1'>Watch
+                            <span class="inline-flex relative h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                             </span>
-                            <span class=' text-primary font-archivo text-3xl col-span-3'>Tesla Inc.</span>
-                            <span class='col-span-1'><img src="images/back.svg" alt="" width="32" height="32" class="transform rotate-135"></span>
-                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
-                            <div class='col-span-2 mt-8'>
-                                <span class='stock-span text-primary font-archivo text-xl'></span>
-                                <span class='text-primary font-archivo text-md'> USD</span>
-                            </div>
-                            <div class='col-span-2 self-end'>
-                                <span class='stock-span text-primary font-archivo text-md'></span>
-                                <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
-                            </div>
-                            <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
-                        </div>
-                    </li>
-                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-6 rounded-md">
-                        <div class="grid lg:grid-cols-2 grid-cols-4">
-                            <span class=' text-primary font-archivo text-3xl col-span-3'>Alphabet Inc.</span>
-                            <span class='col-span-1'><img src="images/back.svg" alt="" width="32" height="32" class="-rotate-45"></span>
-                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
-                            <div class='col-span-2 mt-8'>
-                                <span class='stock-span text-primary font-archivo text-xl'></span>
-                                <span class='text-primary font-archivo text-md'> USD</span>
-                            </div>
-                            <div class='col-span-2 self-end'>
-                                <span class='stock-span text-primary font-archivo text-md'></span>
-                                <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
-                            </div>
-                            <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
-                        </div>
-                    </li>
-                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-6 rounded-md">
-                        <div class="grid lg:grid-cols-2 grid-cols-4">
-                            <span class=' text-primary font-archivo text-3xl col-span-3'>Intel Corporation</span>
-                            <span class='col-span-1'><img src="images/back.svg" alt="" width="32" height="32" class="transform rotate-45"></span>
-                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
-                            <div class='col-span-2 mt-8'>
-                                <span class='stock-span text-primary font-archivo text-xl'></span>
-                                <span class='text-primary font-archivo text-md'> USD</span>
-                            </div>
-                            <div class='col-span-2 self-end'>
-                                <span class='stock-span text-primary font-archivo text-md'></span>
-                                <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
-                            </div>
-                            <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
-                        </div>
-                    </li>
-                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-6 rounded-md">
-                        <div class="grid lg:grid-cols-2 grid-cols-4">
-                            <span class=' text-primary font-archivo text-sm uppercase col-span-3'>Recommended</span>
-                            <span class="flex relative h-3 w-3 col-span-1">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
                             </span>
-                            <span class=' text-primary font-archivo text-3xl col-span-3'>NVIDIA Corporation</span>
-                            <span class='col-span-1'><img src="images/back.svg" alt="" width="32" height="32" class="transform rotate-45"></span>
-                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
-                            <div class='col-span-2 mt-8'>
+                            <div class='col-span-4 lg:col-span-2 mt-8'>
                                 <span class='stock-span text-primary font-archivo text-xl'></span>
                                 <span class='text-primary font-archivo text-md'> USD</span>
                             </div>
-                            <div class='col-span-2 self-end'>
+                            <div class='col-span-4 lg:col-span-2 self-end'>
                                 <span class='stock-span text-primary font-archivo text-md'></span>
                                 <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
                             </div>
                             <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
                         </div>
                     </li>
-                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-6 rounded-md">
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-4 rounded-md">
                         <div class="grid lg:grid-cols-2 grid-cols-4">
-                            <span class=' text-primary font-archivo text-3xl col-span-3'>Uber Technologies</span>
-                            <span class='col-span-1'><img src="images/back.svg" alt="" width="32" height="32" class="transform rotate-45"></span>
+                            <span class=' text-primary font-archivo text-2xl col-span-4'>Alphabet Inc.</span>
+
                             <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
-                            <div class='col-span-2 mt-8'>
+                            <div class='col-span-4 lg:col-span-2 mt-8'>
                                 <span class='stock-span text-primary font-archivo text-xl'></span>
                                 <span class='text-primary font-archivo text-md'> USD</span>
                             </div>
-                            <div class='col-span-2 self-end'>
+                            <div class='col-span-4 lg:col-span-2 self-end'>
                                 <span class='stock-span text-primary font-archivo text-md'></span>
                                 <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
                             </div>
                             <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
                         </div>
                     </li>
-                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-6 rounded-md">
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-4 rounded-md">
                         <div class="grid lg:grid-cols-2 grid-cols-4">
-                            <span class=' text-primary font-archivo text-3xl col-span-3'>Yandex NV</span>
-                            <span class='col-span-1'><img src="images/back.svg" alt="" width="32" height="32" class="transform rotate-45"></span>
+                            <span class=' text-primary font-archivo text-2xl col-span-4'>Intel Corporation</span>
+
                             <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
-                            <div class='col-span-2 mt-8'>
+                            <div class='col-span-4 lg:col-span-2 mt-8'>
                                 <span class='stock-span text-primary font-archivo text-xl'></span>
                                 <span class='text-primary font-archivo text-md'> USD</span>
                             </div>
-                            <div class='col-span-2 self-end'>
+                            <div class='col-span-4 lg:col-span-2 self-end'>
                                 <span class='stock-span text-primary font-archivo text-md'></span>
                                 <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
                             </div>
                             <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
                         </div>
                     </li>
-                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-6 rounded-md">
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-4 rounded-md">
                         <div class="grid lg:grid-cols-2 grid-cols-4">
-                            <span class=' text-primary font-archivo text-3xl col-span-3'>QUALCOMM, Inc.</span>
-                            <span class='col-span-1'><img src="images/back.svg" alt="" width="32" height="32" class="transform rotate-45"></span>
-                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
-                            <div class='col-span-2 mt-8'>
+                            <span class=' text-primary font-archivo text-2xl col-span-4'>NVIDIA Corporation</span>
+                            <span class='stock-span text-primary font-archivo text-xl col-span-3 mt-4'>NASDAQ: </span>
+                            <span class=' text-primary font-archivo text-xs uppercase col-span-1 self-end mb-1'>Watch
+                            <span class="inline-flex relative h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+                            </span>
+                            <div class='col-span-4 lg:col-span-2 mt-8'>
                                 <span class='stock-span text-primary font-archivo text-xl'></span>
                                 <span class='text-primary font-archivo text-md'> USD</span>
                             </div>
-                            <div class='col-span-2 self-end'>
+                            <div class='col-span-4 lg:col-span-2 self-end'>
                                 <span class='stock-span text-primary font-archivo text-md'></span>
                                 <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
                             </div>
                             <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
                         </div>
                     </li>
-                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-6 rounded-md">
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-4 rounded-md">
                         <div class="grid lg:grid-cols-2 grid-cols-4">
-                            <span class=' text-primary font-archivo text-3xl col-span-3'>Baidu Inc.</span>
-                            <span class='col-span-1'><img src="images/back.svg" alt="" width="32" height="32" class="transform rotate-45"></span>
+                            <span class=' text-primary font-archivo text-2xl col-span-4'>Uber Technologies</span>
+
                             <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
-                            <div class='col-span-2 mt-8'>
+                            <div class='col-span-4 lg:col-span-2 mt-8'>
                                 <span class='stock-span text-primary font-archivo text-xl'></span>
                                 <span class='text-primary font-archivo text-md'> USD</span>
                             </div>
-                            <div class='col-span-2 self-end'>
+                            <div class='col-span-4 lg:col-span-2 self-end'>
+                                <span class='stock-span text-primary font-archivo text-md'></span>
+                                <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
+                            </div>
+                            <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
+                        </div>
+                    </li>
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-4 rounded-md">
+                        <div class="grid lg:grid-cols-2 grid-cols-4">
+                            <span class=' text-primary font-archivo text-2xl col-span-4'>Yandex NV</span>
+
+                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
+                            <div class='col-span-4 lg:col-span-2 mt-8'>
+                                <span class='stock-span text-primary font-archivo text-xl'></span>
+                                <span class='text-primary font-archivo text-md'> USD</span>
+                            </div>
+                            <div class='col-span-4 lg:col-span-2 self-end'>
+                                <span class='stock-span text-primary font-archivo text-md'></span>
+                                <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
+                            </div>
+                            <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
+                        </div>
+                    </li>
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-4 rounded-md">
+                        <div class="grid lg:grid-cols-2 grid-cols-4">
+                            <span class=' text-primary font-archivo text-2xl col-span-4'>QUALCOMM, Inc.</span>
+
+                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
+                            <div class='col-span-4 lg:col-span-2 mt-8'>
+                                <span class='stock-span text-primary font-archivo text-xl'></span>
+                                <span class='text-primary font-archivo text-md'> USD</span>
+                            </div>
+                            <div class='col-span-4 lg:col-span-2 self-end'>
+                                <span class='stock-span text-primary font-archivo text-md'></span>
+                                <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
+                            </div>
+                            <span class='stock-span text-primary font-archivo text-md col-span-4 mt-4'></span>
+                        </div>
+                    </li>
+                    <li class="glide__slide bg-gray-900 bg-opacity-30 hover:bg-opacity-50 p-4 rounded-md">
+                        <div class="grid lg:grid-cols-2 grid-cols-4">
+                            <span class=' text-primary font-archivo text-2xl col-span-4'>Baidu Inc.</span>
+
+                            <span class='stock-span text-primary font-archivo text-xl col-span-4 mt-4'>NASDAQ: </span>
+                            <div class='col-span-4 lg:col-span-2 mt-8'>
+                                <span class='stock-span text-primary font-archivo text-xl'></span>
+                                <span class='text-primary font-archivo text-md'> USD</span>
+                            </div>
+                            <div class='col-span-4 lg:col-span-2 self-end'>
                                 <span class='stock-span text-primary font-archivo text-md'></span>
                                 <span class="text-primary font-archivo text-md">(<span class='stock-span text-primary font-archivo text-md'></span>)</span>
                             </div>
@@ -308,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </li>
                 </ul>
             </div>
-            <div class="glide__bullets flex justify-between w-50% lg:w-20% mx-auto" data-glide-el="controls[nav]">
+            <div class="glide__bullets flex justify-between w-50% lg:w-20% mx-auto my-4" data-glide-el="controls[nav]">
                 <button class="glide__bullet h-0 w-0 rounded-full border-8 border-primary opacity-50 hover:opacity-70 focus:outine-none" data-glide-dir="=0"></button>
                 <button class="glide__bullet h-0 w-0 rounded-full border-8 border-primary opacity-50 hover:opacity-70 focus:outine-none" data-glide-dir="=1"></button>
                 <button class="glide__bullet h-0 w-0 rounded-full border-8 border-primary opacity-50 hover:opacity-70 focus:outine-none" data-glide-dir="=2"></button>
@@ -320,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
         <div class="col-span-4 blur p-6 rounded-md mb-8">
-            <div id="accordionTab">
+            <div class="accordionTab">
                 <span class="font-archivo text-lg text-primary uppercase">Latest news</span>
                 <!-- <svg class="border-primary animate-pulse inline max-w-xs" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 386.242 386.242" style="enable-background:new 0 0 386.242 386.242;" xml:space="preserve">
@@ -332,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </g>
                 </svg> -->
             </div>
-            <div id="accordionContent" class="hidden">
+            <div class="hidden accordionContent">
                 <!-- PHP to get the actual RSS feed and display -->
                 <?php
                     $xml = ("https://news.google.com/rss/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNREZyYkRrM0VnSmxiaWdBUAE?hl=en-US&gl=US&ceid=US%3Aen");
@@ -385,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img class="object-cover w-full h-100%" src="images/gallery/zoox_amazon_zoox_1608017608889.webp" alt="">
             </div>
         </div>
-        <div class="col-span-4 blur p-4">
+        <div class="col-span-4 blur p-4 mt-8">
             <div class="flex items-center justify-between">
                 <span class="font-inconsolata text-white col-span-1 text-right">DAY</span>
                 <span class="font-inconsolata text-white col-span-1 text-right">HRS</span>
@@ -393,7 +396,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="font-inconsolata text-white col-span-1 text-right">SEC</span>
             </div>
             <div class="flex items-center justify-between">
-                <span id="countdown-days" class="font-inconsolata text-primary text-3xl col-span-1 text-right">&nbsp;</span>
+                <span id="countdown-days" class="font-inconsolata text-primary text-3xl col-span-1 text-right"></span>
                 <span id="countdown-hr" class="font-inconsolata text-primary text-3xl col-span-1 text-right"></span>
                 <span id="countdown-min" class="font-inconsolata text-primary text-3xl col-span-1 text-right"></span>
                 <span id="countdown-sec" class="font-inconsolata text-primary text-3xl col-span-1 text-right"></span>
@@ -402,37 +405,46 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="col-span-4 lg:col-span-2 p-4 h-96 w-full">
             <img class="transform rotate-2 h-100% w-full object-contain mx-auto" src="images/Driverless.png" alt="">
         </div>
-        <div class="col-span-4 lg:col-span-2">
+        <div class="col-span-4 lg:col-span-2 mb-8 lg:mb-0">
             <span class="font-archivo text-primary">To all our members! The next issue of the amazing Driverless magazine is dropping soon. Keep an eye on that timer, and make sure you get as soon as it's available. As always, you won't want to miss this one.</span>
         </div>
     </div>
-    <div class="z-3 relative col-span-4 grid grid-cols-3 gap-2 bg-black">
-            <div class="col-span-3">
+    <div class="z-3 relative col-span-4 grid grid-cols-3 gap-2 bg-gray-700">
+            <div class="col-span-3 my-4 lg:ml-8 ml-4 mr-80% flex justify-between">
                 <img src="images/Logo-small.svg" alt="" height="48" class="inline">
                 <span style="font-family:'Borda 9'" class="ml-4 mt-1 uppercase text-3xl text-primary">Driverless</span>
             </div>
-            <div class="col-span-1">
-                <a href="#pageWrapper" class="block font-archivo text-primary opacity-70 hover:opacity-100">Home</a>
-                <a href="contact.php" class="block font-archivo text-primary opacity-70 hover:opacity-100">Contact</a>
-                <a href="faq.php" class="block font-archivo text-primary opacity-70 hover:opacity-100">FAQs</a>
-                <a href="login.php" class="block font-archivo text-primary opacity-70 hover:opacity-100">Login</a>
-                <a href="fullregister.php" class="block font-archivo text-primary opacity-70 hover:opacity-100">Sign up</a>
+            <hr class="col-span-3 border-primary">
+            <div class="col-span-3 lg:col-span-1 lg:mx-8 mx-4">
+                <div class="uppercase text-md font-semibold font-archivo text-primary lg:mb-4 mb-2">Go to</div>
+                <div class="block"><a href="#pageWrapper" class="font-archivo text-primary opacity-70 hover:opacity-100">Home</a></div>
+                <div class="block"><a href="contact.php" class="font-archivo text-primary opacity-70 hover:opacity-100">Contact</a></div>
+                <div class="block"><a href="faq.php" class="font-archivo text-primary opacity-70 hover:opacity-100">FAQs</a></div>
+                <div class="block"><a href="login.php" class="font-archivo text-primary opacity-70 hover:opacity-100">Login</a></div>
+                <div class="block"><a href="fullregister.php" class="font-archivo text-primary opacity-70 hover:opacity-100">Sign up</a></div>
             </div>
-            <div class="col-span-1 max-w-lg mx-auto">
-                <img class="block transform hover:scale-110" src="images/facebook.svg" width="32" alt="">
-                <img class="block transform hover:scale-110" src="images/instagram.svg" width="32" alt="">
-                <img class="block transform hover:scale-110" src="images/youtube.svg" width="32" alt="">
-                <img class="block transform hover:scale-110" src="images/twitter.svg" width="32" alt="">
+            <div class="col-span-3 lg:col-span-1 max-w-lg mx-4 lg:mx-0">
+                <div class="uppercase text-md font-semibold font-archivo text-primary lg:mb-4 mb-2 mt-2 lg:mt-0">Social</div>
+                <div class="flex justify-between lg:mr-48">
+                    <img class="transform hover:scale-110 transition duration-100" src="images/facebook.svg" width="32" alt="">
+                    <img class="transform hover:scale-110 transition duration-100" src="images/instagram.svg" width="32" alt="">
+                    <img class="transform hover:scale-110 transition duration-100" src="images/youtube.svg" width="32" alt="">
+                    <img class="transform hover:scale-110 transition duration-100" src="images/twitter.svg" width="32" alt="">
+                </div>
             </div>
-            <div>
-                <?php echo isset($_SESSION['loggedin']) ? 'Subscribe' : 'Sign up' ?>
+            <div class="col-span-3 lg:col-span-1 mx-4 lg:mx-0">
+                <div class="uppercase text-md font-semibold font-archivo text-primary lg:mb-4 mb-2 mt-2 lg:mt-0">Subscribe</div>
+                <div class="flex max-h-100%">
+                    <input type="email" placeholder="Email address" class="inline font-archivo text-primary placeholder-primary placeholder-opacity-50 py-1 px-2 w-full rounded-none max-w-max max-h-full border-2 border-primary bg-secondary bg-opacity-0 focus:outline-none focus:ring">
+                    <button class="py-1 text-primary hover:text-secondary bg-primary col-span-2 w-full rounded-r-md rounded-l-none max-w-min bg-opacity-0 focus:outline-none focus:bg-opacity-100 border-primary border-2 px-2 lg:inline block transition duration-200 hover:bg-primary justify-center"><span class="font-archivo ">Subscribe</span></button>
+                </div>
             </div>
-            <span class="col-span-3 font-archivo text-primary text-md block text-center">Copyright &copy;2021 Paul Kouadio. All rights reserved.</span>
+            <span class="col-span-3 font-archivo text-primary text-md block text-center mt-8 mb-2 mx-4">Copyright &copy;2021 Paul Kouadio. All rights reserved.</span>
     </div>
     <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
     <script src="node_modules/waypoints/lib/noframework.waypoints.min.js"></script>
     <script type="module" src="script.js"></script>
-    <?php echo isset($_SESSION['loggedin']) ? '<script type="text/javascript" src="script.js"></script>' : ''?>
+    <?php echo isset($_SESSION['loggedin']) ? '<script type="text/javascript" src="loggedin.js"></script>' : ''?>
     <!-- <script>
         function toggleMenu() {
             var x = document.getElementById("navSection");

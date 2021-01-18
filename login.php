@@ -91,6 +91,12 @@
                             // $_SESSION['id'] = $id; i'm not using id, as usernames will be unique
                             $_SESSION['username'] = $username;
                             unset($_SESSION['attemptnum']);
+                            $details = $connection->prepare("SELECT u.first_name, u.last_name, u.email FROM users u JOIN accounts a ON u.userid=a.id WHERE a.username=?");
+                            $details->bind_param('s', $_SESSION['username']);
+                            $details->execute();
+                            $details->store_result();
+                            $details->bind_result($_SESSION['fname'], $_SESSION['lname'], $_SESSION['email']);
+                            $details->fetch();
                             unset($lockedaccount);
                             unset($lockeduntil);
                             header("location:index.php"); //may need to change this to a welcome page. have to add session variable checks to allow logged-in only functionality
@@ -163,7 +169,7 @@
                 </a>
             </span>
             <span <?php echo isset($_SESSION['loggedin']) ? "class='lg:hidden'" : "class='nav-item lg:mx-4 flex-shrink-0'"?>>
-                <a href="#" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                <a href="fullregister.php" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Sign up
                 </a>
             </span>

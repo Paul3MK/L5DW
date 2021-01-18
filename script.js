@@ -16,6 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 })
 
+document.addEventListener("DOMContentLoaded", () => {
+    let waypoint = new Waypoint({
+        element: document.querySelector('#banner'),
+        handler: function() {
+            var nav = document.querySelector('#navSection');
+            nav.classList.remove("fixed");
+            nav.classList.add("sticky", "top-0");
+        },
+    });
+})
+
 function toggleMenu() {
     var x = document.getElementById("navSection");
     x.classList.toggle("hidden");
@@ -34,14 +45,44 @@ function toggleMenu() {
     }
 }
 
-function toggleAccordion() {
-    var acc = document.querySelector("#accordionContent");
-    acc.classList.toggle("hidden");
+const animation = anime({
+    targets: ".accordionArrow",
+    rotate: [180, -90],
+    scale: 1.5,
+    duration: 200,
+    easing: 'easeInOutQuad',
+    autoplay: false
+});
+
+animation.reverse();
+
+function toggleAccordion(event) {
+    var acc = document.querySelector(".accordionContent");
+
+    animation.play();
+    animation.reverse();
+}
+
+function closeBanner() {
+    var ban = document.querySelector("#banner");
+    var account = document.querySelector("#account");
+    ban.classList.add("hidden");
+    account.classList.remove("top-32");
+    account.classList.add("top-20");
+
 }
 
 document.querySelector("#closeNav").addEventListener("click", toggleMenu);
 document.querySelector("#openMenu").addEventListener("click", toggleMenu);
-document.querySelector("#accordionTab").addEventListener("click", toggleAccordion);
+
+const accordions = document.querySelectorAll('.accordionTab');
+accordions.forEach(function(a){
+    a.addEventListener("click", function (event){
+        event.target.parentNode.nextElementSibling.classList.toggle("hidden");
+    });
+});
+
+document.querySelector("#closeBanner").addEventListener("click", closeBanner);
 
 
 const config = {

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +31,7 @@
         </div>
         <div class="z-20 lg:z-10 lg:col-span-1 lg:inline-flex lg:items-center lg:justify-between h-screen lg:h-auto lg:relative w-full lg:max-w-max justify-self-center">
             <span class="nav-item lg:mx-4 lg:flex-shrink-0">
-                <a href="#" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                <a href="index.php" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Home
                 </a>
             </span>
@@ -42,12 +46,12 @@
                 </a>
             </span>
             <span class="lg:hidden">
-                <a href="#" class="nav-link block text-lg mt-4 lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                <a href="login.php" class="nav-link block text-lg mt-4 lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Login
                 </a>
             </span>
             <span <?php echo isset($_SESSION['loggedin']) ? "class='lg:hidden'" : "class='nav-item lg:mx-4 flex-shrink-0'"?>>
-                <a href="#" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                <a href="fullregister.php" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Sign up
                 </a>
             </span>
@@ -65,11 +69,13 @@
         </span>
         <img id="openMenu" src="images/menu.svg" alt="" class="col-start-1 row-start-1 my-6 lg:hidden">
     </div>
-    <header class="z-5 absolute w-full top-0 px-4">
-        <div class="mx-auto pt-32">
-            <div class="">
-                <h1 class="font-kayak font-light text-7xl text-primary">Contact<br><span class="font-bold">us.</span></h1>
-            </div>
+    <div <?php echo (isset($_SESSION['loggedin'])) ? 'id="account"': 'id=""'?> class="hidden fixed right-6 top-20 transition duration-300 z-40 py-4 px-2 max-w-xs blur rounded-md rounded-tr-none">
+        <span class="font-archivo text-primary font-sm block py-1 px-2 text-center hover:text-white transition duration-300"><a href="accountdashboard.php">Manage your account</a></span>
+        <span class="font-archivo text-primary font-sm block py-1 text-center hover:text-white transition duration-300"><a href="logout.php">Logout</a></span>
+    </div>
+    <header class="z-5 absolute w-full top-0 px-4 mt-60% lg:mt-20%">
+        <div class="mx-auto container lg:max-w-5xl">
+            <h1 class="font-kayak font-light text-7xl text-primary">Contact<br><span class="font-bold">us.</span></h1>
         </div>
         <!-- carousel -->
     </header>
@@ -78,24 +84,24 @@
             <span class="mt-16 font-archivo text-primary text-xl block">If you're <a href="login.php" class="underline">logged in</a>, feel free to fill in the form if you wish to ask an unanswered question,
                 or if you wish to send a message of any other kind. Or, you can <a href="fullregister.php" class="underline">create an account.</a></span>
             <!-- contact form goes here -->
-            <form <?php echo isset($_SESSION['loggedin']) ? 'action="faq.php"' : 'action="login.php"' ?> method="POST" class="my-8">
+            <form <?php echo isset($_SESSION['loggedin']) ? 'action="faq.php"' : '' ?> method="POST" class="my-8">
                 <div class="grid grid-cols-2 gap-2">
                     <div class="col-span-2 lg:col-span-1">
                         <label for="" class="font-kayak text-primary text-lg block ml-1 uppercase">First name</label>
                         <div class="blur rounded-sm">
-                            <input type="text" name="name" class="px-2 py-1 block focus:outline-none w-full font-archivo text-primary" style="background-color: rgba(0,0,0,0);">
+                            <input type="text" value="<?php echo isset($_SESSION['fname']) ? $_SESSION['fname'] : '' ?>" name="name" class="px-2 py-1 block focus:outline-none w-full font-archivo text-primary" style="background-color: rgba(0,0,0,0);">
                         </div>
                     </div>
                     <div class="col-span-2 lg:col-span-1">
                         <label for="" class="font-kayak text-primary text-lg block ml-1 uppercase">Last name</label>
                         <div class="blur rounded-sm">
-                            <input type="text" name="name" class="px-2 py-1 block focus:outline-none w-full font-archivo text-primary" style="background-color: rgba(0,0,0,0);">
+                            <input type="text" value="<?php echo isset($_SESSION['lname']) ? $_SESSION['lname'] : '' ?>" name="name" class="px-2 py-1 block focus:outline-none w-full font-archivo text-primary" style="background-color: rgba(0,0,0,0);">
                         </div>
                     </div>
                     <div class="col-span-2">
                     <label for="" class="font-kayak text-primary text-lg block ml-1 uppercase">Email</label>
                     <div class="blur rounded-sm">
-                        <input type="email" name="email" class="px-2 py-1 block focus:outline-none w-full font-archivo text-primary" style="background-color: rgba(0,0,0,0);">
+                        <input type="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" name="email" class="px-2 py-1 block focus:outline-none w-full font-archivo text-primary" style="background-color: rgba(0,0,0,0);">
                     </div>
                     </div>
                     <div class="col-span-2">
@@ -112,7 +118,7 @@
         </div>
         <!-- map goes here -->
         <div class="grid grid-cols-2 col-span-4 lg:col-span-2 col-start-1 lg:row-start-1">
-            <div id="mapid" class="col-span-2 h-96 mt-16"></div>
+            <div id="mapid" class="relative z-2 col-span-2 h-96 mt-16"></div>
             <script>
                 var mymap = L.map('mapid').setView([5.567689,-0.2147744], 13);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGF1bDNrIiwiYSI6ImNraWltMXk1OTI2djAyeG81NjNkZWF5YWEifQ.wmyltLTtqlShUrs9L-Q2Vw', {
@@ -125,15 +131,49 @@
                 }).addTo(mymap);
                 var marker = L.marker([5.567689,-0.2147744]).addTo(mymap);
             </script>
-            <div class="col-span-1">
-                <img src="images/phone.svg" alt="" height="16" width="16"><p class="font-archivo text-primary">+233 553219932</p>
-                <a href="mailto:#" class="font-archivo text-primary">queries@driverless.com</a>
-                <p class="font-archivo text-primary">Accra</p>
-                <p class="font-archivo text-primary">122 Kojo Thompson Road</p>
-                <p class="font-archivo text-primary">Accra, Ghana</p>
+            <div class="col-span-2 lg:col-span-1 my-4 lg:my-0">
+                <img src="images/phone.svg" alt="" height="16" width="16" class="inline mr-4">
+                <p class="font-archivo text-primary my-2 inline">+233 553219932</p><br>
+                <img src="images/email.svg" alt="" height="16" width="16" class="inline mr-4">
+                <a href="mailto:#" class="font-archivo text-primary my-2 inline">queries@driverless.com</a><br>
+                <img src="images/pin.svg" alt="" height="16" width="16" class="inline mr-4">
+                <p class="font-archivo text-primary my-2 inline-block align-top">Driverless Labs<br>122 Kojo Thompson Road<br>Accra, Ghana</p>
             </div>
         </div>
     </div>
+    <div class="z-3 relative col-span-4 grid grid-cols-3 gap-2 bg-gray-700">
+            <div class="col-span-3 my-4 lg:ml-8 ml-4 mr-80% flex justify-between">
+                <img src="images/Logo-small.svg" alt="" height="48" class="inline">
+                <span style="font-family:'Borda 9'" class="ml-4 mt-1 uppercase text-3xl text-primary">Driverless</span>
+            </div>
+            <hr class="col-span-3 border-primary">
+            <div class="col-span-3 lg:col-span-1 lg:mx-8 mx-4">
+                <div class="uppercase text-md font-semibold font-archivo text-primary lg:mb-4 mb-2">Go to</div>
+                <div class="block"><a href="#pageWrapper" class="font-archivo text-primary opacity-70 hover:opacity-100">Home</a></div>
+                <div class="block"><a href="contact.php" class="font-archivo text-primary opacity-70 hover:opacity-100">Contact</a></div>
+                <div class="block"><a href="faq.php" class="font-archivo text-primary opacity-70 hover:opacity-100">FAQs</a></div>
+                <div class="block"><a href="login.php" class="font-archivo text-primary opacity-70 hover:opacity-100">Login</a></div>
+                <div class="block"><a href="fullregister.php" class="font-archivo text-primary opacity-70 hover:opacity-100">Sign up</a></div>
+            </div>
+            <div class="col-span-3 lg:col-span-1 max-w-lg mx-4 lg:mx-0">
+                <div class="uppercase text-md font-semibold font-archivo text-primary lg:mb-4 mb-2 mt-2 lg:mt-0">Social</div>
+                <div class="flex justify-between lg:mr-48">
+                    <img class="transform hover:scale-110 transition duration-100" src="images/facebook.svg" width="32" alt="">
+                    <img class="transform hover:scale-110 transition duration-100" src="images/instagram.svg" width="32" alt="">
+                    <img class="transform hover:scale-110 transition duration-100" src="images/youtube.svg" width="32" alt="">
+                    <img class="transform hover:scale-110 transition duration-100" src="images/twitter.svg" width="32" alt="">
+                </div>
+            </div>
+            <div class="col-span-3 lg:col-span-1 mx-4 lg:mx-0">
+                <div class="uppercase text-md font-semibold font-archivo text-primary lg:mb-4 mb-2 mt-2 lg:mt-0">Subscribe</div>
+                <div class="flex max-h-100%">
+                    <input type="email" placeholder="Email address" class="inline font-archivo text-primary placeholder-primary placeholder-opacity-50 py-1 px-2 w-full rounded-none max-w-max max-h-full border-2 border-primary bg-secondary bg-opacity-0 focus:outline-none focus:ring">
+                    <button class="py-1 text-primary hover:text-secondary bg-primary col-span-2 w-full rounded-r-md rounded-l-none max-w-min bg-opacity-0 focus:outline-none focus:bg-opacity-100 border-primary border-2 px-2 lg:inline block transition duration-200 hover:bg-primary justify-center"><span class="font-archivo ">Subscribe</span></button>
+                </div>
+            </div>
+            <span class="col-span-3 font-archivo text-primary text-md block text-center mt-8 mb-2 mx-4">Copyright &copy;2021 Paul Kouadio. All rights reserved.</span>
+    </div>
     <script type="module" src="script.js"></script>
+    <?php echo isset($_SESSION['loggedin']) ? '<script type="text/javascript" src="loggedin.js"></script>' : ''?>
 </body>
 </html>

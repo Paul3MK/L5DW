@@ -1,5 +1,7 @@
 import anime from '/l5dw/node_modules/animejs/lib/anime.es.js';
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     let waypoint = new Waypoint({
         element: document.querySelector('.img-link'),
@@ -21,8 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
         element: document.querySelector('#banner'),
         handler: function() {
             var nav = document.querySelector('#navSection');
-            nav.classList.remove("fixed");
-            nav.classList.add("sticky", "top-0");
+            // nav.classList.remove("fixed");
+            nav.classList.add("lg:sticky", "top-0");
         },
     });
 })
@@ -45,16 +47,16 @@ function toggleMenu() {
     }
 }
 
-const animation = anime({
-    targets: ".accordionArrow",
-    rotate: [180, -90],
-    scale: 1.5,
-    duration: 200,
-    easing: 'easeInOutQuad',
-    autoplay: false
-});
+// const animation = anime({
+//     targets: ".accordionArrow",
+//     rotate: [180, -90],
+//     scale: 1.5,
+//     duration: 200,
+//     easing: 'easeInOutQuad',
+//     autoplay: false
+// });
 
-animation.reverse();
+// animation.reverse();
 
 function toggleAccordion(event) {
     var acc = document.querySelector(".accordionContent");
@@ -65,10 +67,9 @@ function toggleAccordion(event) {
 
 function closeBanner() {
     var ban = document.querySelector("#banner");
-    var account = document.querySelector("#account");
     ban.classList.add("hidden");
-    account.classList.remove("top-32");
-    account.classList.add("top-20");
+    document.querySelector("#polyblur").classList.remove("top-15");
+    document.querySelector("#polyblur").classList.add("top-0");
 
 }
 
@@ -79,10 +80,31 @@ const accordions = document.querySelectorAll('.accordionTab');
 accordions.forEach(function(a){
     a.addEventListener("click", function (event){
         event.target.parentNode.nextElementSibling.classList.toggle("hidden");
+        const el = event.target.parentNode.querySelector(".accordionArrow");
+        if(event.target.parentNode.nextElementSibling.classList.contains("hidden")){
+            anime({
+                targets: el,
+                rotate: 180,
+                scale: 1,
+                duration: 200,
+                easing: 'easeInOutQuad'
+            });
+        }else{
+            anime({
+                targets: el,
+                rotate: [180, -90],
+                scale: 1.5,
+                duration: 200,
+                easing: 'easeInOutQuad'
+            });
+        }
     });
 });
 
-document.querySelector("#closeBanner").addEventListener("click", closeBanner);
+const bannerCloses = document.querySelectorAll(".closeBanner");
+bannerCloses.forEach(close =>{
+    close.addEventListener("click", closeBanner);
+});
 
 
 const config = {
@@ -91,7 +113,8 @@ const config = {
     hoverpause: true,
     gap:0
 }
-new Glide('.glide', config).mount()
+new Glide('.glide', config).mount();
+new Glide('#glide-log', config).mount();
 
 const config2 = {
     type: "slider",

@@ -149,7 +149,7 @@
         </div>
         <div class="lg:col-span-1 lg:inline-flex lg:items-center lg:justify-between h-screen lg:h-auto lg:relative w-full lg:max-w-max justify-self-center">
             <span class="nav-item lg:mx-4 lg:flex-shrink-0">
-                <a href="#" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                <a href="index.php" class="block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Home
                 </a>
             </span>
@@ -181,6 +181,16 @@
             <a id="accountButton" class="font-archivo text-lg rounded-sm bg-opacity-0 text-primary col-span-2 focus:outline-none border-2 px-8 mx-auto block transition duration-300 hover:bg-opacity-1 hover:bg-primary border-primary hover:text-secondary justify-center" <?php echo (isset($_SESSION['loggedin'])) ? 'href="javascript:void(0)">Welcome, '. $_SESSION['username'] : 'href="login.php">Login'?></a>
         </div>
     </nav>
+    <div class="lg:hidden grid grid-cols-4 blur fixed top-0 z-30 w-full px-4">
+        <span id="logo" class=" col-start-2 row-start-1 col-span-2 inline-block lg:hidden my-4">
+            <img src="images/Logo-small.svg" alt="" class="mx-auto" h=16 w=16>
+        </span>
+        <img id="openMenu" src="images/menu.svg" alt="" class="col-start-1 row-start-1 my-6 lg:hidden">
+    </div>
+    <div <?php echo (isset($_SESSION['loggedin'])) ? 'id="account"': 'id=""'?> class="hidden fixed right-6 top-32 transition duration-300 z-40 py-4 px-2 max-w-xs blur rounded-md rounded-tr-none">
+        <span class="font-archivo text-primary font-sm block py-1 px-2 text-center hover:text-white transition duration-300"><a href="accountdashboard.php">Manage your account</a></span>
+        <span class="font-archivo text-primary font-sm block py-1 text-center hover:text-white transition duration-300"><a href="logout.php">Logout</a></span>
+    </div>
     <!-- form -->
     <div class="grid-cols-12">
         <!-- form -->
@@ -212,6 +222,7 @@
             </form>
         </div>
     </div>
+    <script type="module" src="script.js"></script>
     <script>
         function toSeconds(x){
         return x.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});

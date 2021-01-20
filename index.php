@@ -55,14 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
             </g>
         </svg>
     </div>
-    <div id="banner" class="z-40 top-0 relative bg-secondary overflow-hidden w-full flex justify-between px-6">
-        <img src="images/Roborace_Perspective_Green_4000px_Logo.png" alt="" width="108" class="inline pulse">
-        <span class="py-1 font-archivo text-primary inline self-center border-b border-primary">Exclusive! Create your account today to receive a 10% discount code on partner purchases.</span>
-        <div class="self-center">
+    <div id="banner" class="z-40 top-0 absolute <?php echo isset($_SESSION['loggedin']) ? 'hidden' : 'lg:relative flex flex-wrap justify-between' ?> bg-secondary overflow-hidden w-full px-6">
+        <img src="images/Close.svg" alt="" class="closeBanner lg:hidden inline relative right-0 tranform hover:scale-105 pt-4 px-2">
+        <img src="images/Roborace_Perspective_Green_4000px_Logo.png" alt="" width="108" class="hidden lg:inline pulse">
+        <span class="py-1 font-archivo text-primary inline self-center lg:border-b border-primary text-center lg:text-left">Exclusive! Create your account today to receive a 10% discount code on partner purchases.</span>
+        <div class="self-center lg:mx-0 mx-auto py-2 lg:py-0">
             <div class="mx-4 lg:inline-block lg:col-span-1 lg:justify-self-end lg:self-center">
-                <a id="accountButton2" class="font-archivo text-lg rounded-2xl bg-opacity-0 text-primary col-span-2 focus:outline-none border-2 px-8 py-1 mx-auto block transition duration-300 hover:bg-opacity-1 hover:bg-primary border-primary hover:text-secondary justify-center">Sign up</a>
+                <a id="accountButton2" class="font-archivo text-lg rounded-2xl bg-opacity-0 text-primary col-span-2 focus:outline-none border-2 px-8 py-1 mx-auto block transition duration-300 hover:bg-opacity-1 hover:bg-primary border-primary hover:text-secondary justify-center" href="fullregister.php">Sign up</a>
             </div>
-            <img src="images/Close.svg" alt="" id="closeBanner" class="inline relative right-0 tranform hover:scale-105">
+            <img src="images/Close.svg" alt="" class="closeBanner hidden lg:inline relative right-0 tranform hover:scale-105">
         </div>
     </div>
     <nav id="navSection" class="z-40 hidden lg:z-10 lg:grid blur lg:no-blur w-full lg:grid-cols-3 py-5 px-4 lg:py-2 lg:px-6 fixed top-0">
@@ -92,14 +93,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     FAQs
                 </a>
             </span>
-            <span class="lg:hidden">
+            <span class="<?php echo isset($_SESSION['loggedin']) ? 'hidden' : 'lg:hidden' ?>">
                 <a href="login.php" class="nav-link block text-lg mt-4 lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Login
                 </a>
             </span>
-            <span <?php echo isset($_SESSION['loggedin']) ? "class='lg:hidden'" : "class='nav-item lg:mx-4 flex-shrink-0'"?>>
+            <span <?php echo isset($_SESSION['loggedin']) ? "class='hidden'" : "class='nav-item lg:mx-4 flex-shrink-0'"?>>
                 <a href="fullregister.php" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
                     Sign up
+                </a>
+            </span>
+            <span <?php echo isset($_SESSION['loggedin']) ? "class='lg:hidden'" : "class='nav-item hidden flex-shrink-0'"?>>
+                <a href="accountdashboard.php" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                    Manage account
+                </a>
+            </span>
+            <span <?php echo isset($_SESSION['loggedin']) ? "class='lg:hidden'" : "class='nav-item hidden flex-shrink-0'"?>>
+                <a href="logout.php" class="nav-link block text-lg mt-4 lg:inline-block lg:mt-0 text-white hover:border-primary border-b-2 border-transparent transition duration-200 font-archivo">
+                    Logout
                 </a>
             </span>
             <!-- <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-indigo-200 hover:text-white mr-4">
@@ -120,45 +131,57 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="font-archivo text-primary font-sm block py-1 px-2 text-center hover:text-white transition duration-300"><a href="accountdashboard.php">Manage your account</a></span>
         <span class="font-archivo text-primary font-sm block py-1 text-center hover:text-white transition duration-300"><a href="logout.php">Logout</a></span>
     </div>
-    <div class="glide z-1 absolute top-15">
+    <div class="glide z-1 top-15 <?php echo isset($_SESSION['loggedin']) ? 'absolute' : 'hidden' ?>">
         <div class= "glide__track" data-glide-el="track">
             <ul class="glide__slides">
-                <li class="glide__slide"><div class="relative h-screen" style="background-image: url('images/Hero carousel 1.png'); background-position:left 30% top 40%; background-size:cover"></div></li>
-                <li class="glide__slide"><div class="relative h-screen" style="background-image: url('images/e2f1e5c2-roborace.jpg'); background-position:left 40% top 40%;"></div></li>
+                <li class="glide__slide"><div class=""><img src="images/Hero carousel 1.png" alt="" class="h-screen w-full object-cover"></div></li>
+                <li class="glide__slide"><div class=""><img src="images/e2f1e5c2-roborace.jpg" alt="" class="h-screen w-full object-cover"></div></li>
+                <li class="glide__slide"><div class=""><img src="images/waymoCastle_26__1_.jpg" alt="" class="h-screen w-full object-cover"></div></li>
+                <li class="glide__slide"><div class=""><img src="images/Tesla_Full_Self_Driving_Computer_2040.0.jpg" alt="" class="h-screen w-full object-cover"></div></li>
+                <li class="glide__slide"><div class=""><img src="images/2018-07-July-14-Roborace-Goodwood-FoS-Run-22.jpg" alt="" class="h-screen w-full object-cover"></div></li>
+            </ul>
+        </div>
+    </div>
+    <div id="glide-log" class="glide z-1 top-15  <?php echo isset($_SESSION['loggedin']) ? 'hidden' : 'absolute' ?>">
+        <div class= "glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+                <li class="glide__slide"><div class=""><img src="images/charlie-deets-D1W5QenBzlU-unsplash.jpg" alt="" class="h-screen w-full object-cover"></div></li>
+                <li class="glide__slide"><div class=""><img src="images/Waymo-dome.jpg" alt="" class="h-screen w-full object-cover"></div></li>
                 <!-- <li class="glide__slide"><div class="h-screen"><img src="images/roborace1.jpg" alt=""></div></li> TODO: add this style into the src css -->
                 <!-- <li class="glide__slide"><img src="images/vlad-tchompalov-jwyO3NhPZKQ-unsplash.jpg" width=20% alt=""></li> -->
             </ul>
         </div>
     </div>
-    <div class="h-screen w-full z-2 absolute top-0 hidden lg:block" style="clip-path: polygon(0 0, 83% 0, 24% 100%, 0% 100%); backdrop-filter: blur(1px) brightness(0.85);"></div>
+    <div id="polyblur" class="h-screen w-full z-2 absolute top-15 hidden lg:block blur" style="clip-path: polygon(0 0, 83% 0, 24% 100%, 0% 100%);"></div>
     <div id="pageWrapper" class="z-3 relative top-0 grid grid-cols-4 lg:mx-8 mx-4">
         <header class="w-full col-span-4 h-screen">
             <div class="lg:grid lg:grid-cols-12 container max-w-xl lg:max-w-5xl mx-auto pt-10% lg:pt-24 h-75% lg:h-auto">
-                <div id="heading" class="lg:col-span-12 mt-30vh lg:mt-32">
+                <div id="heading" class="lg:col-span-12 mt-30vh lg:mt-20vh">
                     <h1 class="font-kayak font-light text-5xl lg:text-7xl text-primary text-center lg:text-left">The <span class="font-bold tracking-wider">future<br></span> is present.</h1>
                 </div>
-                <span id="subheading" class="font-kayak text-white text-2xl lg:text-4xl col-span-full mt-5vh lg:mt-4 block text-center lg:text-left">welcome to driverless.</span>
-                <button id="cta" class="py-2 rounded-3xl text-primary bg-secondary col-span-2 focus:outline-none focus:bg-opacity-0 mt-10 lg:mt-8 border-transparent border-2 lg:px-12 px-20 mx-auto block transition duration-300 hover:bg-opacity-0 hover:border-secondary justify-center"><span class="font-archivo "><?php echo (isset($_SESSION['loggedin'])) ? 'Subscribe' : 'Sign up' ?></span></button>
+                <span id="subheading" class="font-kayak text-white text-2xl lg:text-4xl col-span-full mt-5vh block text-center lg:text-left">welcome <?php echo isset($_SESSION['loggedin']) ? 'back, '.$_SESSION['username'] : ' to driverless.' ?></span>
+                <button id="cta" class="py-2 rounded-3xl text-primary bg-secondary col-span-2 focus:outline-none focus:bg-opacity-0 mt-5vh border-transparent border-2 lg:px-12 px-20 mx-auto block transition duration-300 hover:bg-opacity-0 hover:border-secondary justify-center"><span class="font-archivo "><?php echo (isset($_SESSION['loggedin'])) ? 'Subscribe' : 'Sign up' ?></span></button>
             </div>
-            <img src="images/Scroll down.svg" alt="" class="mx-auto mt-20vh lg:mt-6 animate-bounce">
+            <img src="images/Scroll down.svg" alt="" class="mx-auto mt-15vh lg:mt-5vh animate-bounce">
         </header>
         <div class="lg:blur lg:max-w-full lg:block lg:col-span-full contents">
-            <div id="link-holder" class="lg:flex justify-between container max-w-5xl mx-auto py-8 mt-4 contents">
+            <span class="text-md text-primary font-archivo font-semibold text-center inline-block w-full uppercase mt-8 col-span-2 col-start-2">Partner newsfeeds</span>
+            <div id="link-holder" class="lg:flex justify-between container max-w-5xl mx-auto py-8 contents">
                 <div class="img-link opacity-0 col-span-2 col-start-2 my-8">
-                    <a href="https://aimotive.com" style="background-color: rgba(0,0,0,0.0);"><img src="images/aimotive.png" alt="aimotive logo" class="mx-auto "></a>
+                    <a href="https://aimotive.com" class="bg-white bg-opacity-0"><img src="images/aimotive.png" alt="aimotive logo" class="mx-auto transform hover:scale-105 transition duration-150"></a>
                 </div>
                 <div class="img-link opacity-0 col-start-2 col-span-2 my-8">
-                    <a href="https://automotiveworld.com"><img src="images/automotive-world.png" alt="aw logo" class="mx-auto"></a>
+                    <a href="https://automotiveworld.com"><img src="images/automotive-world.png" alt="aw logo" class="mx-auto transform hover:scale-105 transition duration-150"></a>
                 </div>
                 <div class="img-link opacity-0 col-start-2 col-span-2 my-8">
-                    <a href="https://autonomousvehicleinternational.com"><img src="images/autonomous-vehicle.png" alt="avi logo" class="mx-auto"></a>
+                    <a href="https://autonomousvehicleinternational.com"><img src="images/autonomous-vehicle.png" alt="avi logo" class="mx-auto transform hover:scale-105 transition duration-150"></a>
                 </div>
             </div>
         </div>
-        <div class="col-span-4 grid grid-cols-3 bg-black bg-opacity-80 rounded-xl min-h-screen mt-12">
-            <div class="col-span-3 lg:col-span-2 w-full h-100%"><img src="images/nio-et7.jpg" alt="" class="w-full h-100% object-cover"></div>
+        <div class="col-span-4 grid grid-cols-3 bg-black bg-opacity-80 rounded-xl min-h-screen">
+            <div class="col-span-3 lg:col-span-2 w-full h-100%"><img src="images/roborace_side_crop_B.png" alt="" class="w-full h-100% object-cover"></div>
             <div class="col-span-3 lg:col-span-1 lg:py-12">
-                <span class="font-archivo text-primary text-2xl lg:pl-16 lg:my-8 my-4 block">Who are we?</span>
+                <span class="font-archivo text-primary text-2xl lg:pl-16 lg:my-8 my-4 block text-right px-4 border-primary border-r-4 ">Who are we?</span>
                 <p class="font-archivo text-primary text-lg px-4 my-2">We are Driverless. <br> We are a company dedicated to bringing you the very latest in the world of autonomous vehicles and related techonology.</p>
                 <p class="font-archivo text-primary text-lg px-4 my-2">In order to keep our readers posted with fresh news and exlusive content, we offer a member-only magazine; <a href="fullregister.php" class="underline">create an account</a> to gain access.</p>
                 <p class="font-archivo text-primary text-lg px-4 my-2">Subscribe to our newsletter.</p>
@@ -323,17 +346,9 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
         <div class="col-span-4 blur p-6 rounded-md mb-8">
-            <div class="accordionTab">
-                <span class="font-archivo text-lg text-primary uppercase">Latest news</span>
-                <!-- <svg class="border-primary animate-pulse inline max-w-xs" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 386.242 386.242" style="enable-background:new 0 0 386.242 386.242;" xml:space="preserve">
-                <g>
-                    <path id="Arrow_Back" d="M374.212,182.3H39.432l100.152-99.767c4.704-4.704,4.704-12.319,0-17.011
-                        c-4.704-4.704-12.319-4.704-17.011,0L3.474,184.61c-4.632,4.632-4.632,12.379,0,17.011l119.1,119.1
-                        c4.704,4.704,12.319,4.704,17.011,0c4.704-4.704,4.704-12.319,0-17.011L39.432,206.36h334.779c6.641,0,12.03-5.39,12.03-12.03
-                        S380.852,182.3,374.212,182.3z"/>
-                </g>
-                </svg> -->
+            <div class="accordionTab flex justify-between">
+                <span class="font-archivo text-lg text-primary uppercase w-full">Latest news</span>
+                <img src="images/back.svg" alt="" width="16" class="accordionArrow transform rotate-180">
             </div>
             <div class="hidden accordionContent">
                 <!-- PHP to get the actual RSS feed and display -->
@@ -346,7 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     $channel = $xmlDoc->getElementsByTagName('channel')->item(0);
                     $channel_title = $channel->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue;
                     $channel_link  = $channel->getElementsByTagName('link')->item(0)->childNodes->item(0)->nodeValue;
-                    echo "<p>Source: <a href='".$channel_link."'>Google News</a>.";
+                    echo "<p class='font-archivo text-primary italic'>Source: <a href='".$channel_link."'>Google News</a>.";
                     $channel_desc  = $channel->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue;
 
                     $x=$xmlDoc->getElementsByTagName('item');
@@ -388,7 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img class="object-cover w-full h-100%" src="images/gallery/zoox_amazon_zoox_1608017608889.webp" alt="">
             </div>
         </div>
-        <div class="col-span-4 blur p-4 mt-8">
+        <div class="col-span-4 blur p-4 mt-8 rounded-t-md">
             <div class="flex items-center justify-between">
                 <span class="font-inconsolata text-white col-span-1 text-right">DAY</span>
                 <span class="font-inconsolata text-white col-span-1 text-right">HRS</span>
@@ -402,14 +417,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span id="countdown-sec" class="font-inconsolata text-primary text-3xl col-span-1 text-right"></span>
             </div>
         </div>
-        <div class="col-span-4 lg:col-span-2 p-4 h-96 w-full">
-            <img class="transform rotate-2 h-100% w-full object-contain mx-auto" src="images/Driverless.png" alt="">
-        </div>
-        <div class="col-span-4 lg:col-span-2 mb-8 lg:mb-0">
-            <span class="font-archivo text-primary">To all our members! The next issue of the amazing Driverless magazine is dropping soon. Keep an eye on that timer, and make sure you get as soon as it's available. As always, you won't want to miss this one.</span>
+        <div class="col-span-4 grid grid-cols-3">
+            <div class="col-span-3 lg:col-span-2 p-4 h-90vh w-full">
+                <img class="transform rotate-2 h-100% w-full object-contain mx-auto" src="images/Driverless.png" alt="">
+            </div>
+            <div class="blur col-span-3 lg:col-span-1 mb-8 lg:mb-0 lg:pl-2 lg:pt-4 rounded-br-md lg:mt-4">
+                <span class="font-archivo text-primary">To you, dear <?php echo isset($_SESSION['loggedin']) ? $_SESSION['username'] : 'visitor' ?>! The next issue of the amazing Driverless magazine is dropping soon. Keep an eye on that timer, and make sure you get as soon as it's available. As always, you won't want to miss this one<?php echo isset($_SESSION['loggedin']) ? '!' : ', so make sure to <a href="fullregister.php" class="underline"> create an account</a> if you haven\'t already.'?></span>
+                <span class="font-archivo text-primary uppercase block font-semibold text-sm mt-2">Sneak peek!</span>
+                <img src="images/Driverless-2.png" alt="" class="hidden lg:block h-50vh">
+            </div>
         </div>
     </div>
-    <div class="z-3 relative col-span-4 grid grid-cols-3 gap-2 bg-gray-700">
+    <div class="z-3 relative col-span-4 grid grid-cols-3 gap-2 bg-gray-700 mt-4">
             <div class="col-span-3 my-4 lg:ml-8 ml-4 mr-80% flex justify-between">
                 <img src="images/Logo-small.svg" alt="" height="48" class="inline">
                 <span style="font-family:'Borda 9'" class="ml-4 mt-1 uppercase text-3xl text-primary">Driverless</span>
@@ -426,10 +445,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="col-span-3 lg:col-span-1 max-w-lg mx-4 lg:mx-0">
                 <div class="uppercase text-md font-semibold font-archivo text-primary lg:mb-4 mb-2 mt-2 lg:mt-0">Social</div>
                 <div class="flex justify-between lg:mr-48">
-                    <img class="transform hover:scale-110 transition duration-100" src="images/facebook.svg" width="32" alt="">
-                    <img class="transform hover:scale-110 transition duration-100" src="images/instagram.svg" width="32" alt="">
-                    <img class="transform hover:scale-110 transition duration-100" src="images/youtube.svg" width="32" alt="">
-                    <img class="transform hover:scale-110 transition duration-100" src="images/twitter.svg" width="32" alt="">
+                    <img class="transform hover:scale-125 transition duration-100" src="images/facebook.svg" width="32" alt="">
+                    <img class="transform hover:scale-125 transition duration-100" src="images/instagram.svg" width="32" alt="">
+                    <img class="transform hover:scale-125 transition duration-100" src="images/youtube.svg" width="32" alt="">
+                    <img class="transform hover:scale-125 transition duration-100" src="images/twitter.svg" width="32" alt="">
                 </div>
             </div>
             <div class="col-span-3 lg:col-span-1 mx-4 lg:mx-0">
